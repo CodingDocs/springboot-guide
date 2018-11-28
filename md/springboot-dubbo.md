@@ -2,30 +2,30 @@
 <!-- MarkdownTOC -->
 
 - [使用 SpringBoot+Dubbo 搭建一个简单分布式服务](#使用-springbootdubbo-搭建一个简单分布式服务)
-  - [实战之前，先来看几个重要的概念](#实战之前，先来看几个重要的概念)
+  - [实战之前，先来看几个重要的概念](#实战之前先来看几个重要的概念)
     - [什么是分布式?](#什么是分布式)
-    - [什么是 Duboo？](#什么是-duboo？)
+    - [什么是 Duboo？](#什么是-duboo)
     - [Dubbo 架构](#dubbo-架构)
-    - [什么是 RPC？](#什么是-rpc？)
-    - [为什么要用 Dubbo？](#为什么要用-dubbo？)
-  - [开始实战 1 ：zookeeper 环境安装搭建](#开始实战-1-：zookeeper-环境安装搭建)
+    - [什么是 RPC？](#什么是-rpc)
+    - [为什么要用 Dubbo？](#为什么要用-dubbo)
+  - [开始实战 1 ：zookeeper 环境安装搭建](#开始实战-1-zookeeper-环境安装搭建)
     - [1. 下载](#1-下载)
     - [2. 解压](#2-解压)
-    - [3. 进入zookeeper目录，创建data文件夹。](#3-进入zookeeper目录，创建data文件夹。)
-    - [4.  进入/zookeeper/conf目录下，复制zoo_sample.cfg，命名为zoo.cfg](#4-进入zookeeperconf目录下，复制zoo_samplecfg，命名为zoocfg)
+    - [3. 进入zookeeper目录，创建data文件夹。](#3-进入zookeeper目录创建data文件夹)
+    - [4.  进入/zookeeper/conf目录下，复制zoo_sample.cfg，命名为zoo.cfg](#4-进入zookeeperconf目录下复制zoo_samplecfg命名为zoocfg)
     - [5. 修改配置文件](#5-修改配置文件)
     - [6. 启动测试](#6-启动测试)
-  - [开始实战 2 ：实现服务接口 dubbo-interface](#开始实战-2-：实现服务接口-dubbo-interface)
-    - [1. dubbo-interface  项目创建](#1-dubbo-interface-项目创建)
+  - [开始实战 2 ：实现服务接口 dubbo-interface](#开始实战-2-实现服务接口-dubbo-interface)
+    - [1. dubbo-interface 项目创建](#1-dubbo-interface-项目创建)
     - [2. 创建接口类](#2-创建接口类)
     - [3. 将项目打成 jar 包供其他项目使用](#3-将项目打成-jar-包供其他项目使用)
-  - [开始实战 3 ：实现服务提供者 dubbo-provider](#开始实战-3-：实现服务提供者-dubbo-provider)
+  - [开始实战 3 ：实现服务提供者 dubbo-provider](#开始实战-3-实现服务提供者-dubbo-provider)
     - [1. dubbo-provider 项目创建](#1-dubbo-provider-项目创建)
     - [2. pom 文件引入相关依赖](#2-pom-文件引入相关依赖)
     - [3. 在 application.properties 配置文件中配置 dubbo 相关信息](#3-在-applicationproperties-配置文件中配置-dubbo-相关信息)
     - [4. 实现接口](#4-实现接口)
     - [5. 服务提供者启动类编写](#5-服务提供者启动类编写)
-  - [开始实战 4 ：实现服务消费者 dubbo-consumer](#开始实战-4-：实现服务消费者-dubbo-consumer)
+  - [开始实战 4 ：实现服务消费者 dubbo-consumer](#开始实战-4-实现服务消费者-dubbo-consumer)
     - [4. 编写一个简单 Controller 调用远程服务](#4-编写一个简单-controller-调用远程服务)
     - [5. 服务消费者启动类编写](#5-服务消费者启动类编写)
     - [6. 测试效果](#6-测试效果)
@@ -209,7 +209,7 @@ dataDir=/usr/local/zookeeper/data
 
 dubbo-interface 后面被打成 jar 包，它的作用只是提供接口。
 
-### 1. dubbo-interface  项目创建
+### 1. dubbo-interface 项目创建
 
 **File->New->Module...** ,然后选择 Maven类型的项目，其他的按照提示一步一步走就好。
 
