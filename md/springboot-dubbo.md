@@ -205,7 +205,7 @@ dataDir=/usr/local/zookeeper/data
 
 项目结构：
 
-![dubbo-provider 项目结构](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-27/62218555.jpg)
+![dubbo-interface项目结构](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-28/96213.jpg)
 
 dubbo-interface 后面被打成 jar 包，它的作用只是提供接口。
 
