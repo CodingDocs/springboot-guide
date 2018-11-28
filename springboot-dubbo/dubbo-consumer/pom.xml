@@ -35,7 +35,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
+        <!--引入接口项目jar包-->
         <dependency>
             <groupId>top.snailclimb</groupId>
             <artifactId>dubbo-interface</artifactId>
