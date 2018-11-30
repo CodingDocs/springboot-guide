@@ -6,6 +6,8 @@ SpringBoot和其他常用技术的整合,可能是你遇到的讲解最详细的
 
 [优雅整合 SpringBoot+Mybatis,可能是你见过把 SpringBoot 整合 Mybatis 写的最详细的一篇文章](https://github.com/Snailclimb/springboot-integration-examples/blob/master/md/springboot-mybatis.md)
 
+[新手也能看懂，基于SpirngBoot2.0+ 的 SpringBoot+Mybatis 多数据源配置](https://github.com/Snailclimb/springboot-integration-examples/blob/master/md/springboot-mybatis-mutipledatasource.md)
+
 
 ## springboot-dubbo(使用SpringBoot+Dubbo 搭建一个分布式服务)
 
