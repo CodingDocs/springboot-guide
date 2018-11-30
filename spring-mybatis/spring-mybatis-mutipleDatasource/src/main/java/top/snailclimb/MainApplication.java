@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 //此注解表示SpringBoot启动类
 @SpringBootApplication
-// 此注解表示动态扫描DAO接口所在包，实际上不加下面这条语句也可以找到
 public class MainApplication {
 
     public static void main(String[] args) {
