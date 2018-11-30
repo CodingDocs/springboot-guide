@@ -46,7 +46,7 @@ SpringBoot 整合 Mybatis 有两种常用的方式，一种就是我们常见的
 
 ### 1.3 创建数据库和 user 用户表
 
-我们的数据库很简单，只有 4 个字段：用户 id、姓名、年龄、余额，如下图所示：
+我们的用户表很简单，只有 4 个字段：用户 id、姓名、年龄、余额，如下图所示：
 
 ![表信息](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-29/99248060.jpg)
 
@@ -115,6 +115,8 @@ Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class 
 如果你非要写把`com.mysql.jdbc.Driver` 改为`com.mysql.cj.jdbc.Driver `即可。
 
 ### 1.6 创建用户类 Bean
+
+User.java
 
 ```java
 public class User {
