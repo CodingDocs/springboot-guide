@@ -175,12 +175,13 @@ public class Money {
 
 ## 二 数据源配置
 
-通过 Java 类来实现对两个数据源的配置，这一部分是最关键的部分了。这里主要提一下这样
+通过 Java 类来实现对两个数据源的配置，这一部分是最关键的部分了,这里主要提一下下面这几点：
 
 - `@MapperScan` 注解中我们声明了使用数据库1的dao类所在的位置,还声明了 SqlSessionTemplate  。SqlSessionTemplate是MyBatis-Spring的核心。这个类负责管理MyBatis的SqlSession,调用MyBatis的SQL方法，翻译异常。SqlSessionTemplate是线程安全的，可以被多个DAO所共享使用。
 - 由于我使用的是全注解的方式开发,所以下面这条找并且解析 mapper.xml 配置语句被我注释掉了
  `bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mapper/db2/*.xml"));`
 - 比如我们要声明使用数据1，直接在 dao 层的类上加上这样一个注释即可：`@Qualifier("db1SqlSessionTemplate")`
+- 我们在数据库1配置类的每个方法前加上了 `@Primary` 注解来声明这个数据库时默认数据库，不然可能会报错。
 
 
 
