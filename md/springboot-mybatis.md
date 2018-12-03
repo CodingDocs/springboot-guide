@@ -100,7 +100,7 @@ CREATE TABLE `user` (
 server.port=8333
 spring.datasource.url=jdbc:mysql://127.0.0.1:3306/erp?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
 spring.datasource.username=root
-spring.datasource.password=153963
+spring.datasource.password=root
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ``` 
 
