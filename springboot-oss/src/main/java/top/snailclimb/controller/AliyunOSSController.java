@@ -18,7 +18,8 @@ import java.io.FileOutputStream;
  * @Description: 阿里云OSS服务相关工具类
  */
 @Controller
-public class UploadFileController {
+@RequestMapping("/file")
+public class AliyunOSSController {
 
     private final org.slf4j.Logger logger = LoggerFactory.getLogger(getClass());
     private static final String TO_PATH = "upLoad";
@@ -29,13 +30,13 @@ public class UploadFileController {
     private AliyunOSSConfig aliyunOSSConfig;
 
     /**
-     * 测试上传文件到阿里云OSS存储
+     * 测试上传文件到阿里云OSS存储(不支持上传文件，推荐作为图床使用)
      *
      * @return
      */
     @RequestMapping("/test")
     public String hello() {
-        File file = new File("E:/Picture/测试.txt");
+        File file = new File("E:/Picture");
         AliyunOSSUtil aliyunOSSUtil = new AliyunOSSUtil();
         String url = aliyunOSSUtil.upLoad(file, aliyunOSSConfig);
         System.out.println(url);
