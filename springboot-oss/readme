@@ -3,3 +3,5 @@
 
 遇到的问题：AliyunOSSConfig类 无法注入到 AliyunOSSConfig类中，
 解决办法：在Controller类中注入，然后当做参数传递到上传文件的方法中
+
+利用HTML5上传文件并显示在前端预览，以图片为例:https://blog.csdn.net/zhaoxiang66/article/details/79097250
