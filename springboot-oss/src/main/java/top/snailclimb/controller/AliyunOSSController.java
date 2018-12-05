@@ -69,7 +69,7 @@ public class AliyunOSSController {
      * 文件上传
      */
     @RequestMapping(value = "/uploadFile")
-    public String uploadBlog(@RequestParam("file") MultipartFile file, Model model) {
+    public String uploadPicture(@RequestParam("file") MultipartFile file, Model model) {
         logger.info("文件上传");
         String filename = file.getOriginalFilename();
         System.out.println(filename);
