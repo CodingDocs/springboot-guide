@@ -126,11 +126,19 @@ public class AliyunOSSConfigConstant {
 }
 ```
 
+获取 BUCKE_NAME 和 END_POINT：
+
 到阿里云 OSS 控制台：[https://oss.console.aliyun.com/overview](https://oss.console.aliyun.com/overview)获取上述相关信息：
 
 ![获取BUCKE_NAME和END_POINT](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-12-4/62719967.jpg)
 
-![获取AccessKey ID和Access Key Secret](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-12-4/56702589.jpg)
+获取AccessKey ID和Access Key Secret第一步：
+
+![获取AccessKey ID和Access Key Secret第一步](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-12-4/56702589.jpg)
+
+获取AccessKey ID和Access Key Secret第二步：
+
+![获取AccessKey ID和Access Key Secret第二步](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-12-5/3395348.jpg)
 
 ### 2.2  通过.properties 配置
 
@@ -167,7 +175,7 @@ public class AliyunOSSConfig {
 
 ## 三 工具类相关方法编写
 
-该工具类主要提供了三个方法：上传文件 `upLoad(File file) `、通过文件名下载文件`downloadFile(String objectName, String localFileName) `、列出某个文件夹下的所有文件`listFile( )`。笔主比较懒，代码可能还比较简陋，各位可以懂懂自己的脑子，参考阿里云官方提供的相关文档来根据自己的需要来优化。Java API文档地址如下：
+该工具类主要提供了三个方法：上传文件 `upLoad(File file) `、通过文件名下载文件`downloadFile(String objectName, String localFileName) `、列出某个文件夹下的所有文件`listFile( )`。笔主比较懒，代码可能还比较简陋，各位可以懂懂自己的脑子，参考阿里云官方提供的相关文档来根据自己的需求来优化。Java API文档地址如下：
 
 [https://help.aliyun.com/document_detail/32008.html?spm=a2c4g.11186623.6.703.238374b4PsMzWf](https://help.aliyun.com/document_detail/32008.html?spm=a2c4g.11186623.6.703.238374b4PsMzWf)
 
