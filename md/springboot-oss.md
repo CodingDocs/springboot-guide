@@ -126,9 +126,11 @@ public class AliyunOSSConfigConstant {
 }
 ```
 
-获取 BUCKE_NAME 和 END_POINT：
+
 
 到阿里云 OSS 控制台：[https://oss.console.aliyun.com/overview](https://oss.console.aliyun.com/overview)获取上述相关信息：
+
+获取 BUCKE_NAME 和 END_POINT：
 
 ![获取BUCKE_NAME和END_POINT](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-12-4/62719967.jpg)
 
