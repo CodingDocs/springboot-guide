@@ -1,3 +1,5 @@
+> 工作一年以上的小伙伴可以加这个交流群，群内有免费公开课,现在加入就送Java架构师进阶系列电子书籍：[![QQ群](https://img.shields.io/badge/QQ%E7%BE%A4-959442351-blue.svg)](https://jq.qq.com/?_wv=1027&k=5tjF8vk)
+
 # springboot-integration-examples
 
 SpringBoot和其他常用技术的整合,可能是你遇到的讲解最详细的学习案例,力争新手也能看懂并且能够在看完之后独立实践。基于最新的 SpringBoot2.0+，是你学习SpringBoot 的最佳指南。
