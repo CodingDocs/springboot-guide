@@ -4,7 +4,7 @@ SpringBoot和其他常用技术的整合,可能是你遇到的讲解最详细的
 
 ## springboot-schedule-tast(SpringBoot 定时任务)
 
-[5分钟搞懂如何在Spring Boot中Schedule Tasks](./md/SpringBoot-ScheduleTasks .md) 
+[5分钟搞懂如何在Spring Boot中Schedule Tasks](./md/SpringBoot-ScheduleTasks.md) 
 
 ## springboot-mybatis(SpringBoot+Mybatis 的最佳实践)
 
