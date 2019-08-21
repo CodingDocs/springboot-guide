@@ -4,7 +4,7 @@
 
 **1. 新建异常信息实体类**
 
-非必要的类，主要用于包装将异常信息。
+非必要的类，主要用于包装异常信息。
 
 `src/main/java/com/twuc/webApp/exception/ErrorResponse.java`
 
@@ -65,7 +65,7 @@ public class ResourceNotFoundException extends RuntimeException {
 
 **3. 新建异常处理类**
 
-我们只需要在类上加上`@ControllerAdvice`注解这个类就成为了全局异常处理类，当然你也可以通过 `assignableTypes `指定特定的类，让异常处理类只处理特定类抛出的异常。
+我们只需要在类上加上`@ControllerAdvice`注解这个类就成为了全局异常处理类，当然你也可以通过 `assignableTypes `指定特定的 `Controller `类，让异常处理类只处理特定类抛出的异常。
 
 `src/main/java/com/twuc/webApp/exception/GlobalExceptionHandler.java`
 
@@ -177,7 +177,7 @@ public class ExceptionTest {
 
 ### 3. ResponseStatusException
 
-研究 ResponseStatusException 我们先来看看，通过  `ResponseStatus`注解简单处理异常的方法。
+研究 ResponseStatusException 我们先来看看，通过  `ResponseStatus`注解简单处理异常的方法（将异常映射为状态码）。
 
 `src/main/java/com/twuc/webApp/exception/ResourceNotFoundException.java`
 
