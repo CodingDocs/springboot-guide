@@ -1,4 +1,4 @@
-### 1. 使用 **@ControllerAdvice**和**@ExceptionHandler** 处理全局异常
+### 1. 使用 **@ControllerAdvice和**@ExceptionHandler处理全局异常
 
 这是目前很常用的一种方式，非常推荐。测试代码中用到了 Junit 5，如果你新建项目验证下面的代码的话，记得添加上相关依赖。
 
