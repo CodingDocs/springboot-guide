@@ -2,7 +2,10 @@ package com.example.demo.scheduletask;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
@@ -13,6 +16,7 @@ import java.util.concurrent.TimeUnit;
  * @author shuang.kou
  */
 @Component
+@EnableAsync
 public class ScheduledTasks {
     private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
@@ -20,9 +24,10 @@ public class ScheduledTasks {
     /**
      * fixedRate：固定速率执行。每5秒执行一次。
      */
+    @Async
     @Scheduled(fixedRate = 5000)
     public void reportCurrentTimeWithFixedRate() {
-        log.info("Current Thread : {}", Thread.currentThread().getName());
+
         log.info("Current Thread : {}", Thread.currentThread().getName());
         log.info("Fixed Rate Task : The time is now {}", dateFormat.format(new Date()));
     }
