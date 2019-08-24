@@ -73,6 +73,48 @@ public class ScheduledTasks {
 
 ```
 
+关于 fixedRate 这里其实有个坑，假如我们有这样一种情况：我们某个方法的定时器设定的固定速率是每5秒执行一次。这个方法现在要执行下面四个任务，四个任务的耗时是：6 s、6s、 2s、 3s，请问这些任务默认情况下（单线程）将如何被执行？
+
+我们写一段简单的程序验证：
+
+```java
+    private static final Logger log = LoggerFactory.getLogger(AsyncScheduledTasks.class);
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    private List<Integer> index = Arrays.asList(6, 6, 2, 3);
+    int i = 0;
+    @Scheduled(fixedRate = 5000)
+    public void reportCurrentTimeWithFixedRate() {
+        if (i == 0) {
+            log.info("Start time is {}", dateFormat.format(new Date()));
+        }
+        if (i < 5) {
+            try {
+                TimeUnit.SECONDS.sleep(index.get(i));
+                log.info("Fixed Rate Task : The time is now {}", dateFormat.format(new Date()));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            i++;
+        }
+    }
+```
+
+运行程序输出如下：
+
+```java
+Start time is 20:58:33
+Fixed Rate Task : The time is now 20:58:39
+Fixed Rate Task : The time is now 20:58:45
+Fixed Rate Task : The time is now 20:58:47
+Fixed Rate Task : The time is now 20:58:51
+```
+
+ 看下面的运行任务示意图应该很好理解了。
+
+![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/fixdrate-single-thread.png)
+
+如果我们将这个方法改为并行运行，运行结果就截然不同了。
+
 ###  2. 启动类上加上`@EnableScheduling`注解
 
 在 SpringBoot 中我们只需要在启动类上加上`@EnableScheduling`便可以启动定时任务了。
@@ -123,4 +165,53 @@ public class SchedulerConfig implements SchedulingConfigurer {
 ```
 
 通过上面的验证的方式输出当前线程的名字会改变。
+
+### 4. @EnableAsync 和 @Async  使定时任务并行执行
+
+如果你想要你的代码并行执行的话，还可以通过`@EnableAsync` 和 @`Async `这两个注解实现
+
+```java
+@Component
+@EnableAsync
+public class AsyncScheduledTasks {
+    private static final Logger log = LoggerFactory.getLogger(AsyncScheduledTasks.class);
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+
+    /**
+     * fixedDelay：固定延迟执行。距离上一次调用成功后2秒才执。
+     */
+    //@Async
+    @Scheduled(fixedDelay = 2000)
+    public void reportCurrentTimeWithFixedDelay() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+            log.info("Fixed Delay Task : The time is now {}", dateFormat.format(new Date()));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+运行程序输出如下，`reportCurrentTimeWithFixedDelay()`  方法会每5秒执行一次，因为我们说过了`@Scheduled`任务都在Spring创建的大小为1的默认线程池中执行。
+
+```
+Current Thread : scheduling-1
+Fixed Delay Task : The time is now 14:24:23
+Current Thread : scheduling-1
+Fixed Delay Task : The time is now 14:24:28
+Current Thread : scheduling-1
+Fixed Delay Task : The time is now 14:24:33
+```
+
+`reportCurrentTimeWithFixedDelay()` 方法上加上 `@Async`   注解后输出如下，`reportCurrentTimeWithFixedDelay()`  方法会每 2 秒执行一次。
+
+```
+Current Thread : task-1
+Fixed Delay Task : The time is now 14:27:32
+Current Thread : task-2
+Fixed Delay Task : The time is now 14:27:34
+Current Thread : task-3
+Fixed Delay Task : The time is now 14:27:36
+```
 
