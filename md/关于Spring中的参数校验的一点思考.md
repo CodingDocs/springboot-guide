@@ -1,0 +1,348 @@
+数据的校验的重要性就不用说了，即使在前端对数据进行校验的情况下，我们还是要对传入后端的数据再进行一遍校验，避免用户绕过浏览器直接通过一些 HTTP 工具直接向后端请求一些违法数据。
+
+## 基础知识和依赖
+
+### 相关依赖
+
+如果开发普通 Java 程序的的话，你需要可能需要像下面这样依赖：
+
+```xml
+   <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.9.Final</version>
+   </dependency>
+   <dependency>
+             <groupId>javax.el</groupId>
+             <artifactId>javax.el-api</artifactId>
+             <version>3.0.0</version>
+     </dependency>
+     <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>2.2.6</version>
+     </dependency>
+```
+
+使用 Spring Boot 程序的话只需要`spring-boot-starter-web` 就够了，它的子依赖包含了我们所需要的东西。
+
+>  spring-boot-devtools 是为了热部署使用。热部署可以简单的这样理解：我们修改程序代码后不需要重新启动程序，就可以获取到最新的代码，更新程序对外的行为。 SpringBoot 提供了 spring-boot-devtools 实现简单的热部署
+
+```xml
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+```
+
+### 示例用到的实体类
+
+```java
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Person {
+
+    @NotNull(message = "classId 不能为空")
+    private String classId;
+
+    @Size(max = 33)
+    @NotNull(message = "name 不能为空")
+    private String name;
+
+    @Pattern(regexp = "((^Man$|^Woman$|^UGM$))", message = "sex 值不在可选范围")
+    @NotNull(message = "sex 不能为空")
+    private String sex;
+
+    @Email(message = "email 格式不正确")
+    @NotNull(message = "email 不能为空")
+    private String email;
+
+}
+```
+
+> 正则表达式说明：
+>
+> ```
+> - ^string : 匹配以 string 开头的字符串
+> - string$ ：匹配以 string 结尾的字符串
+> - ^string$ ：精确匹配 string 字符串
+> - ((^Man$|^Woman$|^UGM$)) : 值只能在 Man,Woman,UGM 这三个值中选择
+> ```
+
+下面这部分校验注解说明内容参考自：https://www.cnkirito.moe/spring-validation/ ，感谢@[徐靖峰](https://github.com/lexburner)。
+
+**JSR提供的校验注解**:
+
+
+- `@Null`   被注释的元素必须为 null 
+- `@NotNull`    被注释的元素必须不为 null
+- `@AssertTrue`     被注释的元素必须为 true 
+- `@AssertFalse`    被注释的元素必须为 false 
+- `@Min(value) `    被注释的元素必须是一个数字，其值必须大于等于指定的最小值 
+- `@Max(value) `    被注释的元素必须是一个数字，其值必须小于等于指定的最大值 
+- `@DecimalMin(value) ` 被注释的元素必须是一个数字，其值必须大于等于指定的最小值
+- `@DecimalMax(value)`  被注释的元素必须是一个数字，其值必须小于等于指定的最大值 
+- `@Size(max=, min=) `  被注释的元素的大小必须在指定的范围内 
+- `@Digits (integer, fraction) `    被注释的元素必须是一个数字，其值必须在可接受的范围内 
+- `@Past `  被注释的元素必须是一个过去的日期 
+- `@Future`     被注释的元素必须是一个将来的日期  
+- `@Pattern(regex=,flag=) ` 被注释的元素必须符合指定的正则表达式
+
+
+**Hibernate Validator提供的校验注解**：
+
+
+- `@NotBlank(message =) `  验证字符串非null，且长度必须大于0 
+- `@Email`  被注释的元素必须是电子邮箱地址 
+- `@Length(min=,max=) ` 被注释的字符串的大小必须在指定的范围内 
+- `@NotEmpty `  被注释的字符串的必须非空 
+- `@Range(min=,max=,message=)`  被注释的元素必须在合适的范围内
+
+## 验证请求体(RequestBody)
+
+### Controller
+
+我们在需要验证的参数上加上了`@Valid`注解，如果验证失败，它将抛出`MethodArgumentNotValidException`。默认情况下，Spring会将此异常转换为HTTP状态400（错误请求）。
+
+```java
+
+@RestController
+@RequestMapping("/api")
+public class PersonController {
+
+    @PostMapping("/person")
+    public ResponseEntity<Person> getPerson(@RequestBody @Valid Person person) {
+        return ResponseEntity.ok().body(person);
+    }
+}
+```
+
+### ExceptionHandler
+
+自定义异常处理器可以帮助我们捕获异常，并进行一些简单的处理。
+
+```java
+@ControllerAdvice(assignableTypes = {PersonController.class})
+public class GlobalExceptionHandler {
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, String>> handleValidationExceptions(
+            MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
+    }
+}
+```
+
+### 通过测试验证
+
+下面我通过 MockMvc 模拟请求 Controller 的方式来验证是否生效，当然你也可以通过 Postman 这种工具来验证。
+
+我们试一下所有参数输入正确的情况。
+
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+public class PersonControllerTest {
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Test
+    public void should_get_person_correctly() throws Exception {
+        Person person = new Person();
+        person.setName("SnailClimb");
+        person.setSex("Man");
+        person.setClassId("82938390");
+        person.setEmail("Snailclimb@qq.com");
+
+        mockMvc.perform(post("/api/person")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsString(person)))
+                .andExpect(MockMvcResultMatchers.jsonPath("name").value("SnailClimb"))
+                .andExpect(MockMvcResultMatchers.jsonPath("classId").value("82938390"))
+                .andExpect(MockMvcResultMatchers.jsonPath("sex").value("Man"))
+                .andExpect(MockMvcResultMatchers.jsonPath("email").value("Snailclimb@qq.com"));
+    }
+}
+```
+
+验证出现参数不合法的情况抛出异常并且可以正确被捕获。
+
+```java
+ @Test
+    public void should_check_person_value() throws Exception {
+        Person person = new Person();
+        person.setSex("Man22");
+        person.setClassId("82938390");
+        person.setEmail("SnailClimb");
+
+        mockMvc.perform(post("/api/person")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsString(person)))
+                .andExpect(MockMvcResultMatchers.jsonPath("sex").value("sex 值不在可选范围"))
+                .andExpect(MockMvcResultMatchers.jsonPath("name").value("name 不能为空"))
+                .andExpect(MockMvcResultMatchers.jsonPath("email").value("email 格式不正确"));
+    }
+```
+
+使用 Postman 验证结果如下：
+
+![Postman 验证结果](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/postman-validation.png)
+
+## 验证请求参数(Path Variables 和 Request Parameters)
+
+### Controller
+
+**一定一定不要忘记在类上加上 `Validated` 注解了，这个参数可以告诉 Spring 去校验方法参数。**
+
+```java
+@RestController
+@RequestMapping("/api")
+@Validated
+public class PersonController {
+
+    @GetMapping("/person/{id}")
+    public ResponseEntity<Integer> getPersonByID(@Valid @PathVariable("id") @Max(value = 5,message = "超过 id 的范围了") Integer id) {
+        return ResponseEntity.ok().body(id);
+    }
+
+    @PutMapping("/person")
+    public ResponseEntity<String> getPersonByName(@Valid @RequestParam("name") @Size(max = 6,message = "超过 name 的范围了") String name) {
+        return ResponseEntity.ok().body(name);
+    }
+}
+
+```
+
+### ExceptionHandler
+
+异常处理handler:
+
+```java
+    @ExceptionHandler(ConstraintViolationException.class)
+    ResponseEntity<String> handleConstraintViolationException(ConstraintViolationException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+    }
+```
+
+### 通过测试验证
+
+```java
+  @Test
+    public void should_check_param_value() throws Exception {
+
+        mockMvc.perform(get("/api/person/6")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string("getPersonByID.id: 超过 id 的范围了"));
+    }
+
+    @Test
+    public void should_check_param_value2() throws Exception {
+
+        mockMvc.perform(put("/api/person")
+                .param("name","snailclimbsnailclimb")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string("getPersonByName.name: 超过 name 的范围了"));
+    }
+```
+
+## 验证Service 中的方法
+
+我们还可以验证任何Spring组件的输入，而不是验证控制器级别的输入。为此，我们使用`@Validated`和`@Valid`注释的组合。
+
+```java
+@Service
+@Validated
+public class PersonService {
+
+    public void validatePerson(@Valid Person person){
+        // do something
+    }
+}
+```
+
+**通过测试验证：**
+
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+public class PersonServiceTest {
+    @Autowired
+    private PersonService service;
+
+    @Test(expected = ConstraintViolationException.class)
+    public void should_throw_exception_when_person_is_not_valid() {
+        Person person = new Person();
+        person.setSex("Man22");
+        person.setClassId("82938390");
+        person.setEmail("SnailClimb");
+        service.validatePerson(person);
+    }
+
+}
+```
+
+
+
+## Validator 编程方式手动进行参数验证
+
+某些场景下可能会需要我们手动校验并获得校验结果。
+
+```java
+    @Test
+    public void check_person_manually() {
+
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        Person person = new Person();
+        person.setSex("Man22");
+        person.setClassId("82938390");
+        person.setEmail("SnailClimb");
+        Set<ConstraintViolation<Person>> violations = validator.validate(person);
+        //output:
+        //email 格式不正确
+        //name 不能为空
+        //sex 值不在可选范围
+        for (ConstraintViolation<Person> constraintViolation : violations) {
+            System.out.println(constraintViolation.getMessage());
+        }
+    }
+```
+
+上面我们是通过 `Validator` 工厂类获得的 `Validator` 示例，当然你也可以通过 `@Autowired`  直接注入的方式。
+
+```java
+@Autowired
+Validator validate
+```
+
+  
+
+## 参考
+
+- https://reflectoring.io/bean-validation-with-spring-boot/
+- https://www.cnkirito.moe/spring-validation/
