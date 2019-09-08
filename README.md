@@ -8,8 +8,6 @@
     - [SpringBoot+阿里云OSS 存储服务](#springboot阿里云oss-存储服务)
     - [springboot-dubbo(使用SpringBoot+Dubbo 搭建一个分布式服务)](#springboot-dubbo使用springbootdubbo-搭建一个分布式服务)
 
-<!-- /TOC -->
-
 ## 重要知识点
 
 - [RestController VS Controller](./md/RestControllerVSController.md) 
