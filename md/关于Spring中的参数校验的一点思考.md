@@ -269,9 +269,9 @@ public class PersonController {
     }
 ```
 
-## 验证Service 中的方法
+## 验证 Service 中的方法
 
-我们还可以验证任何Spring组件的输入，而不是验证控制器级别的输入。为此，我们使用`@Validated`和`@Valid`注释的组合。
+我们还可以验证任何Spring组件的输入，而不是验证控制器级别的输入，我们可以使用`@Validated`和`@Valid`注释的组合来实现这一需求。
 
 ```java
 @Service
