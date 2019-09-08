@@ -1,4 +1,12 @@
+## TODO
+
+1. 自定以验证器（Implementing A Custom Validator）
+2. Using Validation Groups to Validate Objects Differently for Different Use Cases
+3. 原理分析
+
 数据的校验的重要性就不用说了，即使在前端对数据进行校验的情况下，我们还是要对传入后端的数据再进行一遍校验，避免用户绕过浏览器直接通过一些 HTTP 工具直接向后端请求一些违法数据。
+
+下面我如何在 Java 程序中尤其是 Spring 程序中优雅地的进行参数验证。
 
 ## 基础知识和依赖
 
