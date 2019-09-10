@@ -113,9 +113,11 @@ public class Person {
 - `@NotEmpty `  被注释的字符串的必须非空 
 - `@Range(min=,max=,message=)`  被注释的元素必须在合适的范围内
 
-## 验证请求体(RequestBody)
+## 验证Controller的输入
 
-### Controller
+### 验证请求体(RequestBody)
+
+**Controller：**
 
 我们在需要验证的参数上加上了`@Valid`注解，如果验证失败，它将抛出`MethodArgumentNotValidException`。默认情况下，Spring会将此异常转换为HTTP Status 400（错误请求）。
 
@@ -132,7 +134,7 @@ public class PersonController {
 }
 ```
 
-### ExceptionHandler
+**ExceptionHandler：**
 
 自定义异常处理器可以帮助我们捕获异常，并进行一些简单的处理。如果对于下面的处理异常的代码不太理解的话，可以查看这篇文章 [《SpringBoot 处理异常的几种常见姿势》](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485568&idx=2&sn=c5ba880fd0c5d82e39531fa42cb036ac&chksm=cea2474bf9d5ce5dcbc6a5f6580198fdce4bc92ef577579183a729cb5d1430e4994720d59b34&token=1924773784&lang=zh_CN#rd)。
 
@@ -153,7 +155,7 @@ public class GlobalExceptionHandler {
 }
 ```
 
-### 通过测试验证
+**通过测试验证：**
 
 下面我通过 MockMvc 模拟请求 Controller 的方式来验证是否生效，当然你也可以通过 Postman 这种工具来验证。
 
@@ -212,9 +214,9 @@ public class PersonControllerTest {
 
 ![Postman 验证结果](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/postman-validation.png)
 
-## 验证请求参数(Path Variables 和 Request Parameters)
+### 验证请求参数(Path Variables 和 Request Parameters)
 
-### Controller
+**Controller：**
 
 **一定一定不要忘记在类上加上 `Validated` 注解了，这个参数可以告诉 Spring 去校验方法参数。**
 
@@ -237,9 +239,7 @@ public class PersonController {
 
 ```
 
-### ExceptionHandler
-
-异常处理handler:
+**ExceptionHandler：**
 
 ```java
     @ExceptionHandler(ConstraintViolationException.class)
@@ -248,7 +248,7 @@ public class PersonController {
     }
 ```
 
-### 通过测试验证
+**通过测试验证：**
 
 ```java
   @Test
