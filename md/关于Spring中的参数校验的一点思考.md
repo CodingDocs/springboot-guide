@@ -1,11 +1,6 @@
-## TODO
-
-1. Using Validation Groups to Validate Objects Differently for Different Use Cases
-2. 原理分析
-
 数据的校验的重要性就不用说了，即使在前端对数据进行校验的情况下，我们还是要对传入后端的数据再进行一遍校验，避免用户绕过浏览器直接通过一些 HTTP 工具直接向后端请求一些违法数据。
 
-下面我如何在 Java 程序中尤其是 Spring 程序中优雅地的进行参数验证。
+下面我会通过实例程序演示如何在 Java 程序中尤其是 Spring 程序中优雅地的进行参数验证。
 
 ## 基础知识和依赖
 
@@ -31,9 +26,7 @@
      </dependency>
 ```
 
-使用 Spring Boot 程序的话只需要`spring-boot-starter-web` 就够了，它的子依赖包含了我们所需要的东西。
-
->  spring-boot-devtools 是为了热部署使用。热部署可以简单的这样理解：我们修改程序代码后不需要重新启动程序，就可以获取到最新的代码，更新程序对外的行为。 SpringBoot 提供了 spring-boot-devtools 实现简单的热部署
+使用 Spring Boot 程序的话只需要`spring-boot-starter-web` 就够了，它的子依赖包含了我们所需要的东西。除了这个依赖，下面的演示还用到了 lombok ，所以不要忘记添加上相关依赖。
 
 ```xml
     <dependencies>
@@ -54,7 +47,9 @@
     </dependencies>
 ```
 
-### 示例用到的实体类
+### 实体类
+
+下面这个是示例用到的实体类。
 
 ```java
 @Data
@@ -122,7 +117,7 @@ public class Person {
 
 ### Controller
 
-我们在需要验证的参数上加上了`@Valid`注解，如果验证失败，它将抛出`MethodArgumentNotValidException`。默认情况下，Spring会将此异常转换为HTTP状态400（错误请求）。
+我们在需要验证的参数上加上了`@Valid`注解，如果验证失败，它将抛出`MethodArgumentNotValidException`。默认情况下，Spring会将此异常转换为HTTP Status 400（错误请求）。
 
 ```java
 
@@ -139,7 +134,7 @@ public class PersonController {
 
 ### ExceptionHandler
 
-自定义异常处理器可以帮助我们捕获异常，并进行一些简单的处理。
+自定义异常处理器可以帮助我们捕获异常，并进行一些简单的处理。如果对于下面的处理异常的代码不太理解的话，可以查看这篇文章 [《SpringBoot 处理异常的几种常见姿势》](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485568&idx=2&sn=c5ba880fd0c5d82e39531fa42cb036ac&chksm=cea2474bf9d5ce5dcbc6a5f6580198fdce4bc92ef577579183a729cb5d1430e4994720d59b34&token=1924773784&lang=zh_CN#rd)。
 
 ```java
 @ControllerAdvice(assignableTypes = {PersonController.class})
@@ -340,14 +335,14 @@ public class PersonServiceTest {
     }
 ```
 
-上面我们是通过 `Validator` 工厂类获得的 `Validator` 示例，当然你也可以通过 `@Autowired`  直接注入的方式。
+上面我们是通过 `Validator` 工厂类获得的 `Validator` 示例，当然你也可以通过 `@Autowired`  直接注入的方式。但是在非 Spring Component 类中使用这种方式的话，只能通过工厂类来获得 `Validator`。
 
 ```java
 @Autowired
 Validator validate
 ```
 
-## 自定以验证器
+## 自定以 Validator
 
 如果自带的校验注解无法满足你的需求的话，你还可以自定义实现注解。比如我们的Person类多了一个 region 字段，region 字段只能是`China`、`China-Taiwan`、`China-HongKong`这三个中的一个。
 
@@ -462,6 +457,10 @@ public class PersonService {
 ```
 
 使用验证组这种方式的时候一定要小心，这是一种反模式，还会造成代码逻辑性变差。
+
+## TODO
+
+- [ ] 原理分析
 
 ## 参考
 
