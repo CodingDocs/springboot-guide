@@ -2,6 +2,7 @@
 
 - [重要知识点](#重要知识点)
 - [实例](#实例)
+    - [SpringBoot 热部署](#springboot-热部署)
     - [SpringBoot 定时任务](#springboot-定时任务)
     - [SpringBoot 异常处理](#springboot-异常处理)
     - [SpringBoot+Mybatis](#springbootmybatis)
@@ -14,6 +15,10 @@
 - [关于Spring中的参数校验的一点思考](./md/spring-bean-validation)
 
 ## 实例
+
+### SpringBoot 热部署
+
+[SpringBoot 使用 spring-boot-devtools 热部署](./md/spring-boot-devtools.md)
 
 ### SpringBoot 定时任务
 
