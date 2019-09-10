@@ -280,6 +280,8 @@ public class PersonController {
 
 我们还可以验证任何Spring组件的输入，而不是验证控制器级别的输入，我们可以使用`@Validated`和`@Valid`注释的组合来实现这一需求。
 
+**一定一定不要忘记在类上加上 `Validated` 注解了，这个参数可以告诉 Spring 去校验方法参数。**
+
 ```java
 @Service
 @Validated
@@ -312,8 +314,6 @@ public class PersonServiceTest {
 
 }
 ```
-
-
 
 ## Validator 编程方式手动进行参数验证
 
@@ -349,7 +349,119 @@ Validator validate
 
 ## 自定以验证器
 
+如果自带的校验注解无法满足你的需求的话，你还可以自定义实现注解。比如我们的Person类多了一个 region 字段，region 字段只能是`China`、`China-Taiwan`、`China-HongKong`这三个中的一个。
 
+第一步你需要创建一个注解：
+
+```java
+@Target({FIELD})
+@Retention(RUNTIME)
+@Constraint(validatedBy = RegionValidator.class)
+@Documented
+public @interface Region {
+
+    String message() default "Region 值不在可选范围内";
+
+    Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
+}
+```
+
+第二步你需要实现 `ConstraintValidator`接口，并重写`isValid` 方法：
+
+```java
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+import java.util.HashSet;
+
+public class RegionValidator implements ConstraintValidator<Region, String> {
+
+    @Override
+    public boolean isValid(String value, ConstraintValidatorContext context) {
+        HashSet<Object> regions = new HashSet<>();
+        regions.add("China");
+        regions.add("China-Taiwan");
+        regions.add("China-HongKong");
+        return regions.contains(value);
+    }
+}
+
+```
+
+现在你就可以使用这个注解：
+
+```java
+    @Region
+    private String region;
+```
+
+## 使用验证组
+
+很多时候我们需要使用到验证组，这样说可能不太清楚，说简单点就是对对象操作的不同方法有不同的验证规则，示例如下。
+
+先创建两个接口：
+
+```java
+public interface AddPersonGroup {
+}
+public interface DeletePersonGroup {
+}
+```
+我们可以这样去使用验证组
+
+```java
+@NotNull(groups = DeletePersonGroup.class)
+@Null(groups = AddPersonGroup.class)
+private String group;
+```
+
+```java
+@Service
+@Validated
+public class PersonService {
+
+    public void validatePerson(@Valid Person person) {
+        // do something
+    }
+
+    @Validated(AddPersonGroup.class)
+    public void validatePersonGroupForAdd(@Valid Person person) {
+        // do something
+    }
+
+    @Validated(DeletePersonGroup.class)
+    public void validatePersonGroupForDelete(@Valid Person person) {
+        // do something
+    }
+
+}
+```
+
+通过测试验证：
+
+```java
+  @Test(expected = ConstraintViolationException.class)
+    public void should_check_person_with_groups() {
+        Person person = new Person();
+        person.setSex("Man22");
+        person.setClassId("82938390");
+        person.setEmail("SnailClimb");
+        person.setGroup("group1");
+        service.validatePersonGroupForAdd(person);
+    }
+
+    @Test(expected = ConstraintViolationException.class)
+    public void should_check_person_with_groups2() {
+        Person person = new Person();
+        person.setSex("Man22");
+        person.setClassId("82938390");
+        person.setEmail("SnailClimb");
+        service.validatePersonGroupForDelete(person);
+    }
+```
+
+使用验证组这种方式的时候一定要小心，这是一种反模式，还会造成代码逻辑性变差。
 
 ## 参考
 
