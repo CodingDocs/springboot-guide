@@ -11,6 +11,7 @@
 ## 重要知识点
 
 - [RestController VS Controller](./md/RestControllerVSController.md) 
+- [关于Spring中的参数校验的一点思考](./md/spring-bean-validation)
 
 ## 实例
 
