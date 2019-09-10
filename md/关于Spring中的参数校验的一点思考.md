@@ -460,6 +460,7 @@ public class PersonService {
 
 ## TODO
 
+- [ ] JPA 数据库级别参数约束验证
 - [ ] 原理分析
 
 ## 参考
