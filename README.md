@@ -43,7 +43,7 @@
 
 [超详细，新手都能看懂 ！使用SpringBoot+Dubbo 搭建一个分布式服务](./md/springboot-dubbo.md)
 
-### Spring Security
+### Spring Security With JWT
 
 [从零入门 ！Spring Security With JWT（含权限验证）](https://github.com/Snailclimb/spring-security-jwt-guide)
 
