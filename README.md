@@ -20,7 +20,7 @@
 
 [SpringBoot 使用 spring-boot-devtools 热部署](./md/spring-boot-devtools.md)
 
-### SpringBoot 定时任务
+### SpringBoot 定时任务	
 
 [5分钟搞懂如何在Spring Boot中Schedule Tasks](./md/SpringBoot-ScheduleTasks.md) 
 
@@ -39,6 +39,11 @@
 
 [SpringBoot 整合 阿里云OSS 存储服务，快来免费搭建一个自己的图床](./md/springboot-oss.md)
 
-###   springboot-dubbo(使用SpringBoot+Dubbo 搭建一个分布式服务)
+###   SpringBoot+Dubbo
 
 [超详细，新手都能看懂 ！使用SpringBoot+Dubbo 搭建一个分布式服务](./md/springboot-dubbo.md)
+
+### Spring Security
+
+[从零入门 ！Spring Security With JWT（含权限验证）](https://github.com/Snailclimb/spring-security-jwt-guide)
+
