@@ -1,3 +1,5 @@
+**如果国内访问缓慢的话，可以通过码云查看：** https://gitee.com/SnailClimb/springboot-guide
+
 ### 目录
 
 - [重要知识点](#重要知识点)
