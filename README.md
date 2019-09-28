@@ -1,3 +1,5 @@
+![logo](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/spring-boot-guide.png)
+
 **如果国内访问缓慢的话，可以通过码云查看：** https://gitee.com/SnailClimb/springboot-guide
 
 ### 目录
@@ -49,3 +51,6 @@
 
 [从零入门 ！Spring Security With JWT（含权限验证）](https://github.com/Snailclimb/spring-security-jwt-guide)
 
+## 说明
+
+ 项目 logo 由 [logoly](https://logoly.pro/#/) 生成。
