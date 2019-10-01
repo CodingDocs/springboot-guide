@@ -1,4 +1,8 @@
-![logo](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/spring-boot-guide.png)
+<p align="center">
+<a href="https://github.com/Snailclimb/springboot-guide" target="_blank">
+	<img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/spring-boot-guide.png" width=""/>
+</a>
+</p>
 
 **如果国内访问缓慢的话，可以通过码云查看：** https://gitee.com/SnailClimb/springboot-guide
 
