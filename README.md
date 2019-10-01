@@ -34,8 +34,11 @@
 
 ### SpringBoot 异常处理
 
-
 [SpringBoot 异常处理](./md/springboot-handle-exception.md)
+
+### SpringBoot 异步编程
+
+[新手也能看懂的 SpringBoot 异步编程指南][./async-method-springboot/README.md]
 
 ### SpringBoot+Mybatis
 
@@ -58,3 +61,5 @@
 ## 说明
 
  项目 logo 由 [logoly](https://logoly.pro/#/) 生成。
+
+[./async-method-springboot/README.md]: 
