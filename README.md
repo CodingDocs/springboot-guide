@@ -13,6 +13,11 @@
 
 **如果国内访问缓慢的话，可以通过码云查看：** https://gitee.com/SnailClimb/springboot-guide
 
+**在线阅读：**
+
+1. http://snailclimb.top/springboot-guide
+2. https://snailclimb.gitee.io/springboot-guide （上面一个地址访问速度缓慢的建议使用这个路径访问）
+
 ## 重要知识点
 
 ### 开始
