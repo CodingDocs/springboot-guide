@@ -2,7 +2,7 @@
 
 [https://help.aliyun.com/product/31815.html?spm=a2c4g.11186623.6.540.4e401c62EyJK5T](https://help.aliyun.com/product/31815.html?spm=a2c4g.11186623.6.540.4e401c62EyJK5T)
 
-本篇文章会介绍到 SpringBoot 整合阿里云OSS 存储服务实现文件上传下载以及简单的查看。其实今天将的应该算的上是一个简单的小案例了，涉及到的知识点还算是比较多。
+本篇文章会介绍到 SpringBoot 整合阿里云OSS 存储服务实现文件上传下载以及简单的查看。其实今天将的应该算的上是一个简单的小案例了，涉及到的知识点还算是比较多。相关代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/springboot-oss 。
 
 <!-- MarkdownTOC -->
 
@@ -32,7 +32,7 @@
 具有 Java 基础以及SpringBoot 简单基础知识即可。
 
 ###  1.2 环境参数
- 
+
 - 开发工具：IDEA
 - 基础工具：Maven+JDK8
 - 所用技术：SpringBoot+阿里云OSS 存储服务 Java 相关API
@@ -509,4 +509,6 @@ JS 的内容主要是让我们上传的图片可以预览，就像我们在网�
 
 
 我们终于能够独立利用阿里云 OSS 完成一个自己的图床服务，但是其实如果你想用阿里云OSS当做图床可以直接使用极简图床：[http://jiantuku.com](http://jiantuku.com)  上传图片，比较方便！大家可能心里在想那你特么让我实现个图床干嘛？我觉得通过学习，大家以后可以做很多事情，比如 利用阿里云OSS 存储服务存放自己网站的相关图片。
+
+相关代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/springboot-oss 。
 

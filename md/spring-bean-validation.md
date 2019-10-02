@@ -482,3 +482,5 @@ public class PersonService {
 
 - https://reflectoring.io/bean-validation-with-spring-boot/
 - https://www.cnkirito.moe/spring-validation//
+
+相关代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/bean-validation-demo

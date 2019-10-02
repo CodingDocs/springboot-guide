@@ -1,6 +1,6 @@
 很多时候我们都需要为系统建立一个定时任务来帮我们做一些事情，SpringBoot 已经帮我们实现好了一个，我们只需要直接使用即可，当然你也可以不用   SpringBoot 自带的定时任务，整合 Quartz 很多时候也是一个不错的选择。
 
-本文不涉及 SpringBoot 整合 Quartz 的内容，只演示了如何使用 SpringBoot 自带的实现定时任务的方式。
+本文不涉及 SpringBoot 整合 Quartz 的内容，只演示了如何使用 SpringBoot 自带的实现定时任务的方式。相关代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/springboot-schedule-tast
 
 ## Spring Schedule 实现定时任务
 
@@ -215,3 +215,4 @@ Current Thread : task-3
 Fixed Delay Task : The time is now 14:27:36
 ```
 
+相关代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/springboot-schedule-tast

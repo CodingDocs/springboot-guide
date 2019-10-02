@@ -10,8 +10,8 @@
 
 ### 基础
 
-1. [RestController VS Controller](./md/RestControllerVSController.md) 
-2. [SpringBoot 使用 spring-boot-devtools 热部署](./md/spring-boot-devtools.md)
+1. **[RestController VS Controller](./md/RestControllerVSController.md)** 
+2. [SpringBoot 使用 spring-boot-devtools 进行热部署](./md/spring-boot-devtools.md)
 3. [整合 SpringBoot+Mybatis](./md/springboot-mybatis.md) 、[SpirngBoot2.0+ 的 SpringBoot+Mybatis 多数据源配置](./md/springboot-mybatis-mutipledatasource.md)
 
 ### 进阶
