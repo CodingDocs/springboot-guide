@@ -105,7 +105,7 @@ public @interface SpringBootConfiguration {
 
 新建一个 controller 文件夹，并在这个文件夹下新建一个名字叫做 `HelloWorldController` 的类。
 
-`@RestController`是Spring 4 之后新加的注解，如果在Spring4之前开发 RESTful Web服务的话，你需要使用`@Controller` 并结合`@ResponseBody`注解，也就是说`@Controller` +`@ResponseBody`= `@RestController`。对于这两个注解，我在后面单独抽了一篇文章来介绍。
+`@RestController`是Spring 4 之后新加的注解，如果在Spring4之前开发 RESTful Web服务的话，你需要使用`@Controller` 并结合`@ResponseBody`注解，也就是说`@Controller` +`@ResponseBody`= `@RestController`。对于这两个注解，我在基础篇单独抽了一篇文章来介绍。
 
 `com.example.helloworld.controller`
 
