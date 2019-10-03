@@ -105,6 +105,8 @@ public @interface SpringBootConfiguration {
 
 新建一个 controller 文件夹，并在这个文件夹下新建一个名字叫做 `HelloWorldController` 的类。
 
+`@RestController`是Spring 4 之后新加的注解，如果在Spring4之前开发 RESTful Web服务的话，你需要使用`@Controller` 并结合`@ResponseBody`注解，也就是说`@Controller` +`@ResponseBody`= `@RestController`。对于这两个注解，我在后面单独抽了一篇文章来介绍。
+
 `com.example.helloworld.controller`
 
 ```java
@@ -134,7 +136,15 @@ server.port=8333
 
 ### 大功告成,运行项目
 
+运行 `HelloWorldApplication` ，运行成功控制台会打印出一些消息，不要忽略这些消息，它里面会有一些比较有用的信息。 
 
+```
+2019-10-03 09:24:47.757  INFO 26326 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8333 (http) with context path ''
+```
+
+上面是我截取的一段控制台打印出的内容，通过这段内容我们就知道了 Spring Boot 默认使用的 Tomact 内置 web 服务器，项目被运行在我们指定的 8333 端口上，并且项目根上下文路径是 "/"。
+
+浏览器 http://localhost:8333/test/hello 如果你可以在页面正确得到 "Hello World" 的话，说明你已经成功完成了这部分内容。
 
 
 
