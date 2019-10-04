@@ -146,11 +146,11 @@ server.port=8333
 
 浏览器 http://localhost:8333/test/hello 如果你可以在页面正确得到 "Hello World" 的话，说明你已经成功完成了这部分内容。
 
+### 总结
 
+通过本文我们学到了如何新建 Spring Boot 项目、SpringBoot 项目常见的项目结构分析、`@SpringBootApplication` 注解分析，最后实现了 Spring Boot 版的 "Hello World"。代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/start/hello-world （建议自己手敲一遍！！！）
 
-代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/start/hello-world
-
-
+### 代办
 
 - [ ] Spring Boot 启动流程分析
 
