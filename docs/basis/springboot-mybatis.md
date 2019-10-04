@@ -39,9 +39,7 @@ SpringBoot 整合 Mybatis 有两种常用的方式，一种就是我们常见的
 
 ### 1.2 创建工程
 
-创建一个基本的 SpringBoot 项目，我这里就不多说这方面问题了，具体可以参考下面这篇文章：
-
-[https://blog.csdn.net/qq_34337272/article/details/79563606](https://blog.csdn.net/qq_34337272/article/details/79563606)
+创建一个基本的 SpringBoot 项目，我这里就不多说这方面问题了，具体可以参考前面的文章。
 
 
 ### 1.3 创建数据库和 user 用户表
@@ -90,7 +88,7 @@ CREATE TABLE `user` (
             <scope>test</scope>
         </dependency>
     </dependencies>
-``` 
+```
 
 ### 1.5 配置 application.properties 
 
@@ -102,7 +100,7 @@ spring.datasource.url=jdbc:mysql://127.0.0.1:3306/erp?useUnicode=true&characterE
 spring.datasource.username=root
 spring.datasource.password=root
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-``` 
+```
 
 注意：我们使用的 mysql-connector-java 8+ ，JDBC 连接到mysql-connector-java 6+以上的需要指定时区 `serverTimezone=GMT%2B8`。另外我们之前使用配置 Mysql数据连接是一般是这样指定`driver-class-name=com.mysql.jdbc.Driver`,但是现在不可以必须为 否则控制台下面的异常：
 

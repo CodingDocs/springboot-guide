@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://snailclimb.top/springboot-guide/#/"><img src="https://img.shields.io/badge/阅读-read-brightgreen.svg" alt="阅读"></a>
+  <a href="http://snailclimb.top/springboot-guide/#/"><img src="https://img.shields.io/badge/阅读-read-brightgreen.svg" alt="阅读"></a>
   <a href="#联系我"><img src="https://img.shields.io/badge/chat-微信群-blue.svg" alt="微信群"></a>
   <a href="#公众号"><img src="https://img.shields.io/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-JavaGuide-lightgrey.svg" alt="公众号"></a>
   <a href="#公众号"><img src="https://img.shields.io/badge/PDF-Java面试突击-important.svg" alt="公众号"></a>
@@ -15,8 +15,8 @@
 
 **在线阅读：**
 
-1. https://snailclimb.top/springboot-guide
-2. https://snailclimb.gitee.io/springboot-guide （上面一个地址访问速度缓慢的建议使用这个路径访问）
+1. http://snailclimb.top/springboot-guide
+2. https://snailclimb.gitee.io/springboot-guide （上面的地址访问速度缓慢的建议使用这个路径访问）
 
 ## 重要知识点
 
@@ -28,10 +28,9 @@
 
 ### 基础
 
-1. **[构建 RESTful Web 服务](./docs/basis/sringboot-restful-web-service.md)**
-2. **[RestController VS Controller](./docs/basis/RestControllerVSController.md)** 
-3. [使用 spring-boot-devtools 进行热部署](./docs/basis/spring-boot-devtools.md)
-4. [整合 SpringBoot+Mybatis](./docs/basis/springboot-mybatis.md) 、[SpirngBoot2.0+ 的 SpringBoot+Mybatis 多数据源配置](./docs/basis/springboot-mybatis-mutipledatasource.md)
+1. **[RestController VS Controller](./docs/basis/RestControllerVSController.md)** 
+2. [使用 spring-boot-devtools 进行热部署](./docs/basis/spring-boot-devtools.md)
+3. [整合 SpringBoot+Mybatis](./docs/basis/springboot-mybatis.md) 、[SpirngBoot2.0+ 的 SpringBoot+Mybatis 多数据源配置](./docs/basis/springboot-mybatis-mutipledatasource.md)
 
 ### 进阶
 

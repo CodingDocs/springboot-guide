@@ -215,4 +215,3 @@ Current Thread : task-3
 Fixed Delay Task : The time is now 14:27:36
 ```
 
-相关代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/springboot-schedule-tast

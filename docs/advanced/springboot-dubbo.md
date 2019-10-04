@@ -408,5 +408,3 @@ public class DubboConsumerApplication {
 浏览器访问 [http://localhost:8330/hello](http://localhost:8330/hello) 页面返回 Hello world，控制台输出 Hello SnailClimb，和预期一直，使用SpringBoot+Dubbo 搭建第一个简单的分布式服务实验成功！
 
 
-
-相关代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/springboot-dubbo
