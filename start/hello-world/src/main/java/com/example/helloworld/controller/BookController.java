@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(value = "/api",method = RequestMethod.POST)
+@RequestMapping(value = "/api")
 public class BookController {
 
     private List<Book> books = new ArrayList<>();
@@ -36,8 +36,13 @@ public class BookController {
     }
 
     @GetMapping("/book")
-    public ResponseEntity getBookByName(@RequestParam("name") String name) {
+    public ResponseEntity getBookByName(@RequestParam(value = "name") String name) {
         List<Book> results = books.stream().filter(book -> book.getName().equals(name)).collect(Collectors.toList());
         return ResponseEntity.ok(results);
+    }
+
+    @GetMapping("/books")
+    public ResponseEntity getAllBook() {
+        return ResponseEntity.ok(books);
     }
 }
