@@ -92,11 +92,11 @@ public class BookController {
 }
 ```
 
-1. `@RestController`  将返回的对象数据直接以 JSON 或 XML 形式写入 HTTP 响应(Response)中。绝大部分情况下都是直接以  JSON 形式返回给客户端，很少的情况下才会以 XML 形式返回。转换成 XML 形式还需要额为的工作，上面代码中演示的直接就是将对象数据直接以 JSON 形式写入 HTTP 响应(Response)中。
-2. `@RequestMapping` :上面的示例中没有指定 GET 与 PUT、POST 等，因为@RequestMapping默认映射所有HTTP Action，你可以使用`@RequestMapping(method=ActionType)`来缩小这个映射。
-3. ` @PostMapping`实际上就等价于 `@RequestMapping(method = RequestMethod.POST)`，同样的 ` @DeleteMapping` ,`@GetMapping`也都一样，常用的 HTTP Action 都有一个这种形式的注解所对应。
-4. `@PathVariable` :取url地址中的参数。`@RequestParam("name") ` url的查询参数值。
-5. `@RequestBody`:可以将 *HttpRequest* body 中的 JSON 类型数据反序列化为合适的 Java 类型。
+1. `@RestController`  **将返回的对象数据直接以 JSON 或 XML 形式写入 HTTP 响应(Response)中。**绝大部分情况下都是直接以  JSON 形式返回给客户端，很少的情况下才会以 XML 形式返回。转换成 XML 形式还需要额为的工作，上面代码中演示的直接就是将对象数据直接以 JSON 形式写入 HTTP 响应(Response)中。关于`@Controller`和`@RestController` 的对比，我会在下一篇文章中单独介绍到（`@Controller` +`@ResponseBody`= `@RestController`）。
+2. `@RequestMapping` :上面的示例中没有指定 GET 与 PUT、POST 等，因为**`@RequestMapping`默认映射所有HTTP Action**，你可以使用`@RequestMapping(method=ActionType)`来缩小这个映射。
+3. `@PostMapping`实际上就等价于 `@RequestMapping(method = RequestMethod.POST)`，同样的 ` @DeleteMapping` ,`@GetMapping`也都一样，常用的 HTTP Action 都有一个这种形式的注解所对应。
+4. `@PathVariable` :取url地址中的参数。`@RequestParam ` url的查询参数值。
+5. `@RequestBody`:可以**将 *HttpRequest* body 中的 JSON 类型数据反序列化为合适的 Java 类型。**
 6. `ResponseEntity`: **表示整个HTTP Response：状态码，标头和正文内容**。我们可以使用它来自定义HTTP Response 的内容。
 
 ### 运行项目并测试效果
@@ -117,6 +117,6 @@ public class BookController {
 
 请求的 url:[localhost:8333/api/book?name=book1](localhost:8333/api/book?name=book1)
 
+### 总结
 
-
-代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/start/hello-world
+通过本文我们需到了使用 Lombok 来优化 Java 代码，以及一些开发 RestFul Web 服务常用的注解：`@RestController`  、`@RequestMapping`、`@PostMapping`、`@PathVariable`、`@RequestParam`、`@RequestBody`以及和HTTP Response 有关的 `Responsity`类。关于这些知识点的用法，我在上面都有介绍到，更多用法还需要自己去查阅相关文档。代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/start/hello-world （建议自己手敲一遍！！！）
