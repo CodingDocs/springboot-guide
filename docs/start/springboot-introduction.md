@@ -1,7 +1,7 @@
 # 一 SpringBoot介绍
 
 ## 1.1  先从Spring谈起
-我们知道Spring是重量级企业开发框架 **Enterprise JavaBean（EJB）** 的替代平，Spring为企业级Java开发提供了一种相对简单的方法，通过 **依赖注入** 和 **面向切面编程** ，用简单的 **Java对象（Plain Old Java Object，POJO）** 实现了EJB的功能
+我们知道Spring是重量级企业开发框架 **Enterprise JavaBean（EJB）** 的替代品，Spring为企业级Java开发提供了一种相对简单的方法，通过 **依赖注入** 和 **面向切面编程** ，用简单的 **Java对象（Plain Old Java Object，POJO）** 实现了EJB的功能
 
 **虽然Spring的组件代码是轻量级的，但它的配置却是重量级的（需要大量XML配置）** 。Spring 2.5引入了基于注解的组件扫描，这消除了大量针对应用程序自身组件的显式XML配置。Spring 3.0引入了基于Java的配置，这是一种类型安全的可重构配置方式，可以代替XML。
 
