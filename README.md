@@ -32,7 +32,7 @@
 2. **[RestController VS Controller](./docs/basis/RestControllerVSController.md)** 
 3. **[Spring Boot 异常处理](./docs/advanced/springboot-handle-exception.md)**
 4. [使用 spring-boot-devtools 进行热部署](./docs/basis/spring-boot-devtools.md)
-5. **[一文搞懂如何在 Spring Boot 中正确使用 JPA](./docs/advanced/springboot-jpa.md)**
+5. **[一文搞懂如何在 Spring Boot 中正确使用 JPA](./docs/basis/springboot-jpa.md)**
 6. [整合 SpringBoot+Mybatis](./docs/basis/springboot-mybatis.md) 、[SpirngBoot2.0+ 的 SpringBoot+Mybatis 多数据源配置](./docs/basis/springboot-mybatis-mutipledatasource.md)
 
 ### 进阶
