@@ -148,7 +148,9 @@ server.port=8333
 
 ### 总结
 
-通过本文我们学到了如何新建 Spring Boot 项目、SpringBoot 项目常见的项目结构分析、`@SpringBootApplication` 注解分析，最后实现了 Spring Boot 版的 "Hello World"。代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/source-code/start/hello-world（建议自己手敲一遍！！！）
+通过本文我们学到了如何新建 Spring Boot 项目、SpringBoot 项目常见的项目结构分析、`@SpringBootApplication` 注解分析，最后实现了 Spring Boot 版的 "Hello World"。
+
+代码地址: https://github.com/Snailclimb/springboot-guide/tree/master/source-code/start/hello-world（建议自己手敲一遍！！！）
 
 ### 代办
 

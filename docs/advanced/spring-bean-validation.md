@@ -473,6 +473,8 @@ public class PersonService {
 
 使用验证组这种方式的时候一定要小心，这是一种反模式，还会造成代码逻辑性变差。
 
+代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/source-code/advanced/bean-validation-demo
+
 ## TODO
 
 - [ ] JPA 数据库级别参数约束验证
