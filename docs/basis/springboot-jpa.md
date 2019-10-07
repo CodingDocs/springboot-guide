@@ -1,4 +1,6 @@
-项目代码给予 Spring Boot 最新的 2.1.9.RELEASE 版本构建。新建项目这部分就不多说了，前面的文章已经很详细介绍过。
+JPA 这部分内容上手很容易，但是涉及到的东西还是挺多的，网上大部分关于 JPA 的资料都不是特别齐全，大部分用的版本也是比较落后的。另外，我下面讲到了的内容也不可能涵盖所有 JPA 相关内容，我只是把自己觉得比较重要的知识点总结在了下面。我自己也是参考着官方文档写的，[官方文档](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference)非常详细了，非常推荐阅读一下。这篇文章可以帮助对 JPA 不了解或者不太熟悉的人来在实际项目中正确使用 JPA。
+
+项目代码基于 Spring Boot 最新的 2.1.9.RELEASE 版本构建（截止到这篇文章写完），另外，新建项目就不多说了，前面的文章已经很详细介绍过。
 
 ## 1.相关依赖
 
@@ -247,7 +249,7 @@ CompletableFuture<User> findByName(String name);
 
 ## 5.测试类和源代码地址
 
-测试类
+测试类：
 
 ```java
 
@@ -320,9 +322,18 @@ public class PersonRepositoryTest {
 }
 ```
 
-源代码地址：
+源代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/source-code/basis/jpa-demo
+
+## 6. 总结
+
+本文主要介绍了：
+
+1. 使用 JPA 自带的方法进行增删改查以及条件查询。
+2. 自定义 SQL  语句进行查询或者更新数据库。
+3. 创建异步的方法。
 
 ## 代办
 
+- [ ] 分页
 - [ ] 多表联合查询
 
