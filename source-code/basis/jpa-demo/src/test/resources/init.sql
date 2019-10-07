@@ -1,0 +1,8 @@
+insert into person (name, age) values ("person1","18")
+insert into person (name, age) values ("person2","16")
+insert into person (name, age) values ("person3","15")
+insert into person (name, age) values ("person4","13")
+insert into person (name, age) values ("person5","18")
+insert into person (name, age) values ("person6","18")
+insert into person (name, age) values ("person7","18")
+insert into person (name, age) values ("person8","18")
