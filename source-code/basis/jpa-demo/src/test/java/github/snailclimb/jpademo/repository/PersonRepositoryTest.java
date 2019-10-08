@@ -1,12 +1,11 @@
 package github.snailclimb.jpademo.repository;
 
-import github.snailclimb.jpademo.entity.Person;
+import github.snailclimb.jpademo.model.po.Person;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -30,11 +29,8 @@ public class PersonRepositoryTest {
     @Before
     public void setUp() {
         assertNotNull(personRepository);
-        Person person = new Person("SnailClimb", 23);
-        Person savedPerson = personRepository.saveAndFlush(person);// 更新 person 对象的姓名
-        savedPerson.setName("UpdatedName");
-        personRepository.save(savedPerson);
-
+        Person person = new Person("SnailClimb", 23, 1L);
+        Person savedPerson = personRepository.saveAndFlush(person);
         id = savedPerson.getId();
     }
 
@@ -76,11 +72,5 @@ public class PersonRepositoryTest {
         personRepository.deleteAll();
     }
 
-    @Sql(scripts = {"classpath:/init.sql"})
-    @Test
-    public void find_person_age_older_than_18() {
-        List<Person> personList = personRepository.findByAgeGreaterThan(18);
-        System.out.println(personList.toString());
-    }
 
 }

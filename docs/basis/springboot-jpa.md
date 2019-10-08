@@ -312,13 +312,6 @@ public class PersonRepositoryTest {
         personRepository.deleteAll();
     }
 
-    @Sql(scripts = {"classpath:/init.sql"})
-    @Test
-    public void find_person_age_older_than_18() {
-        List<Person> personList = personRepository.findByAgeGreaterThan(18);
-        System.out.println(personList.toString());
-    }
-
 }
 ```
 

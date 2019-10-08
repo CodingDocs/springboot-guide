@@ -1,5 +1,6 @@
-package github.snailclimb.jpademo.entity;
+package github.snailclimb.jpademo.model.po;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +21,12 @@ public class Person {
     @Column(unique = true)
     private String name;
     private Integer age;
+    private Long companyId;
+    private Long schoolId;
 
-    public Person(String name, Integer age) {
+    public Person(String name, Integer age, Long companyId) {
         this.name = name;
         this.age = age;
+        this.companyId = companyId;
     }
-
 }
