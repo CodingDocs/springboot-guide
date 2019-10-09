@@ -193,6 +193,8 @@ public interface JpaRepository<T, ID> extends PagingAndSortingRepository<T, ID>,
 
 #### 2) 带条件的查询
 
+下面这些方法是我们根据 JPA 提供的语法自定义的，你需要将下面这些方法写到 `PersonRepository` 中。
+
 假如我们想要根据 Name 来查找 Person ，你可以这样：
 
 ```java
@@ -319,14 +321,18 @@ public class PersonRepositoryTest {
 
 ## 6. 总结
 
-本文主要介绍了：
+本文主要介绍了 JPA 的基本用法：
 
 1. 使用 JPA 自带的方法进行增删改查以及条件查询。
+
 2. 自定义 SQL  语句进行查询或者更新数据库。
+
 3. 创建异步的方法。
 
-## 代办
+   
 
-- [ ] 分页
-- [ ] 多表联合查询
+在下一篇关于 JPA 的文章中我会介绍到非常重要的两个知识点：
+
+1. 基本分页功能实现
+2. 多表联合查询以及多表联合查询下的分页功能实现。
 
