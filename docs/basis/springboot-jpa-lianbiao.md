@@ -107,6 +107,13 @@ System.out.println(userInformationList.getContent());
 
 ## 加餐:自定以SQL语句的其他用法
 
+下面我只介绍两种比较常用的：
+
+1. IN 查询
+2. BETWEEN 查询
+
+当然，还有很多用法需要大家自己去实践了。
+
 ### IN 查询
 
  在 sql 语句中加入我们需要筛选出符合几个条件中的一个的情况下，可以使用 IN 查询，对应到 JPA 中也非常简单。比如下面的方法就实现了，根据名字过滤需要的人员信息。
@@ -144,3 +151,12 @@ List<UserDTO> userDTOS = personRepository.filterUserInfo(personList);
 List<UserDTO> userDTOS = personRepository.filterUserInfoByAge(19,20);
 ```
 
+## 总结
+
+本节我们主要学习了下面几个知识点：
+
+1. 自定义 SQL 语句实现连表查询；
+2. 自定义 SQL 语句连表查询并实现分页操作；
+3. 条件查询：IN 查询，BETWEEN查询。
+
+我们这一节是把 SQl 语句连表查询的逻辑放在 Dao 层直接写的，这样写的好处是比较方便，也比较简单明了。但是可能会不太好维护，很多时候我们会选择将这些逻辑放到 Service 层去做，这样也是可以实现的，下面文章我就会介绍到如何将这些写在 Dao 层的逻辑转移到 Service 层去。
