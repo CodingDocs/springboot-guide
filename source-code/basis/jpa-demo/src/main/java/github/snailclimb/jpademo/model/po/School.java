@@ -2,7 +2,6 @@ package github.snailclimb.jpademo.model.po;
 
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

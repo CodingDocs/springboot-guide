@@ -52,4 +52,15 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
                     "left join School s on p.schoolId=s.id ")
     Page<UserDTO> getUserInformationList(Pageable pageable);
 
+    @Query(value = "select new github.snailclimb.jpademo.model.dto.UserDTO(p.name,p.age,c.companyName,s.name) " +
+            "from Person p left join Company c on  p.companyId=c.id " +
+            "left join School s on p.schoolId=s.id " +
+            "where p.name IN :peopleList")
+    List<UserDTO> filterUserInfo(List peopleList);
+
+    @Query(value = "select new github.snailclimb.jpademo.model.dto.UserDTO(p.name,p.age,c.companyName,s.name) " +
+            "from Person p left join Company c on  p.companyId=c.id " +
+            "left join School s on p.schoolId=s.id " +
+            "where p.age between :small and :big")
+    List<UserDTO> filterUserInfoByAge(int small,int big);
 }
