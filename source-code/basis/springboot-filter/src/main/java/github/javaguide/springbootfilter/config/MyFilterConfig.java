@@ -19,9 +19,9 @@ public class MyFilterConfig {
     MyFilter2 myFilter2;
 
     @Bean
-    public FilterRegistrationBean<MyFilter> myFilter() {
+    public FilterRegistrationBean<MyFilter> setUpMyFilter() {
         FilterRegistrationBean<MyFilter> filterRegistrationBean = new FilterRegistrationBean<>();
-        filterRegistrationBean.setOrder(1);
+        filterRegistrationBean.setOrder(2);
         filterRegistrationBean.setFilter(myFilter);
         filterRegistrationBean.setUrlPatterns(new ArrayList<>(Arrays.asList("/api/*")));
 
@@ -29,12 +29,11 @@ public class MyFilterConfig {
     }
 
     @Bean
-    public FilterRegistrationBean<MyFilter2> myFilter2() {
+    public FilterRegistrationBean<MyFilter2> setUpMyFilter2() {
         FilterRegistrationBean<MyFilter2> filterRegistrationBean = new FilterRegistrationBean<>();
-        filterRegistrationBean.setOrder(2);
+        filterRegistrationBean.setOrder(1);
         filterRegistrationBean.setFilter(myFilter2);
         filterRegistrationBean.setUrlPatterns(new ArrayList<>(Arrays.asList("/api/*")));
-
         return filterRegistrationBean;
     }
 }

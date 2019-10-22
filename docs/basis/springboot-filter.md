@@ -78,6 +78,8 @@ public class MyFilter implements Filter {
 
 `MyFilterConfig.java`
 
+在配置中注册自定义的过滤器。
+
 ```java
 @Configuration
 public class MyFilterConfig {
@@ -112,3 +114,86 @@ public class MyFilterWithAnnotation implements Filter {
 
 ### 4.定义多个拦截器，并决定它们的执行顺序
 
+加入我们现在又加入了一个过滤器怎么办？
+
+`MyFilter2.java`
+
+```java
+@Component
+public class MyFilter2 implements Filter {
+    private static final Logger logger = LoggerFactory.getLogger(MyFilter2.class);
+
+    @Override
+    public void init(FilterConfig filterConfig) {
+        logger.info("初始化过滤器2");
+    }
+
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        //对请求进行预处理
+        logger.info("过滤器开始对请求进行预处理2：");
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        String requestUri = request.getRequestURI();
+        System.out.println("请求的接口为2：" + requestUri);
+        long startTime = System.currentTimeMillis();
+        //通过 doFilter 方法实现过滤功能
+        filterChain.doFilter(servletRequest, servletResponse);
+        // 上面的 doFilter 方法执行结束后用户的请求已经返回
+        long endTime = System.currentTimeMillis();
+        System.out.println("该用户的请求已经处理完毕，请求花费的时间为2：" + (endTime - startTime));
+    }
+
+    @Override
+    public void destroy() {
+        logger.info("销毁过滤器2");
+    }
+}
+
+```
+
+在配置中注册自定义的过滤器，通过`FilterRegistrationBean` 的`setOrder` 方法可以决定 Filter 的执行顺序。
+
+```java
+@Configuration
+public class MyFilterConfig {
+    @Autowired
+    MyFilter myFilter;
+
+    @Autowired
+    MyFilter2 myFilter2;
+
+    @Bean
+    public FilterRegistrationBean<MyFilter> setUpMyFilter() {
+        FilterRegistrationBean<MyFilter> filterRegistrationBean = new FilterRegistrationBean<>();
+        filterRegistrationBean.setOrder(2);
+        filterRegistrationBean.setFilter(myFilter);
+        filterRegistrationBean.setUrlPatterns(new ArrayList<>(Arrays.asList("/api/*")));
+
+        return filterRegistrationBean;
+    }
+
+    @Bean
+    public FilterRegistrationBean<MyFilter2> setUpMyFilter2() {
+        FilterRegistrationBean<MyFilter2> filterRegistrationBean = new FilterRegistrationBean<>();
+        filterRegistrationBean.setOrder(1);
+        filterRegistrationBean.setFilter(myFilter2);
+        filterRegistrationBean.setUrlPatterns(new ArrayList<>(Arrays.asList("/api/*")));
+        return filterRegistrationBean;
+    }
+}
+```
+
+实际测试效果如下：
+
+```shell
+2019-10-22 22:32:15.569  INFO 1771 --- [           main] g.j.springbootfilter.filter.MyFilter2    : 初始化过滤器2
+2019-10-22 22:32:15.569  INFO 1771 --- [           main] g.j.springbootfilter.filter.MyFilter     : 初始化过滤器
+2019-10-22 22:32:55.199  INFO 1771 --- [nio-8080-exec-1] g.j.springbootfilter.filter.MyFilter2    : 过滤器开始对请求进行预处理2：
+请求的接口为2：/api/hello
+2019-10-22 22:32:55.199  INFO 1771 --- [nio-8080-exec-1] g.j.springbootfilter.filter.MyFilter     : 过滤器开始对请求进行预处理：
+请求的接口为：/api/hello
+该用户的请求已经处理完毕，请求花费的时间为：1037
+该用户的请求已经处理完毕，请求花费的时间为2：1037
+```
+
+源代码地址：
