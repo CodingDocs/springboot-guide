@@ -110,3 +110,5 @@ public class MyFilterWithAnnotation implements Filter {
 
 另外，为了能让 Spring 找到它，你需要在启动类上加上 `@ServletComponentScan` 注解。
 
+### 4.定义多个拦截器，并决定它们的执行顺序
+
