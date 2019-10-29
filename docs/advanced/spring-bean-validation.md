@@ -12,7 +12,7 @@
     - [验证请求参数(Path Variables 和 Request Parameters)](#验证请求参数path-variables-和-request-parameters)
 - [验证 Service 中的方法](#验证-service-中的方法)
 - [Validator 编程方式手动进行参数验证](#validator-编程方式手动进行参数验证)
-- [自定以 Validator](#自定以-validator)
+- [自定义 Validator](#自定以-validator)
 - [使用验证组](#使用验证组)
 - [TODO](#todo)
 - [参考](#参考)
