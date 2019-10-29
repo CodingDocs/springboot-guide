@@ -53,7 +53,7 @@ Apache Dubbo (incubating) |ˈdʌbəʊ| 是一款高性能、轻量级的开源Ja
 
 Dubbo 目前已经有接近 23k 的 Star ，Dubbo的Github 地址：[https://github.com/apache/incubator-dubbo](https://github.com/apache/incubator-dubbo) 。 另外，在开源中国举行的2018年度最受欢迎中国开源软件这个活动的评选中，Dubbo 更是凭借其超高人气仅次于 vue.js 和 ECharts 获得第三名的好成绩。
 
-Dubbo 是由阿里开源，后来加入了 Apache 。正式由于 Dubbo 的出现，才使得越来越多的公司开始使用以及接受分布式架构。
+Dubbo 是由阿里开源，后来加入了 Apache 。正是由于 Dubbo 的出现，才使得越来越多的公司开始使用以及接受分布式架构。
 
 **下面我们简单地来看一下 Dubbo 的架构，加深对 Dubbo 的理解。**
 
