@@ -2,7 +2,7 @@
 
 [https://help.aliyun.com/product/31815.html?spm=a2c4g.11186623.6.540.4e401c62EyJK5T](https://help.aliyun.com/product/31815.html?spm=a2c4g.11186623.6.540.4e401c62EyJK5T)
 
-本篇文章会介绍到 SpringBoot 整合阿里云OSS 存储服务实现文件上传下载以及简单的查看。其实今天将的应该算的上是一个简单的小案例了，涉及到的知识点还算是比较多。相关代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/springboot-oss 。
+本篇文章会介绍到 SpringBoot 整合阿里云OSS 存储服务实现文件上传下载以及简单的查看。其实今天讲的应该算的上是一个简单的小案例了，涉及到的知识点还算是比较多。相关代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/springboot-oss 。
 
 <!-- MarkdownTOC -->
 
