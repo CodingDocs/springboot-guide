@@ -1,3 +1,5 @@
+> 本文大部分内容是对国外一个不错的文章 ：https://o7planning.org/en/11689/spring-boot-interceptors-tutorial 的翻译，做了适当的修改。
+
 ### 1.Interceptor介绍
 
 **拦截器(Interceptor)同** Filter 过滤器一样，它俩都是面向切面编程——AOP 的具体实现（AOP切面编程只是一种编程思想而已）。
