@@ -35,7 +35,8 @@
 5. **[ Spring Boot JPA 基础：常见操作解析](./docs/basis/springboot-jpa.md)**
 6. **[JPA 中非常重要的连表查询就是这么简单](./docs/basis/springboot-jpa-lianbiao.md)**
 7. [SpringBoot 实现过滤器](./docs/basis/springboot-filter.md)
-8. [整合 SpringBoot+Mybatis](./docs/basis/springboot-mybatis.md) 、[SpirngBoot2.0+ 的 SpringBoot+Mybatis 多数据源配置](./docs/basis/springboot-mybatis-mutipledatasource.md)
+8. [SpringBoot 实现拦截器](./docs/basis/springboot-interceptor.md)
+9. [整合 SpringBoot+Mybatis](./docs/basis/springboot-mybatis.md) 、[SpirngBoot2.0+ 的 SpringBoot+Mybatis 多数据源配置](./docs/basis/springboot-mybatis-mutipledatasource.md)
 
 ### 进阶
 

@@ -1,6 +1,6 @@
 ### 1. Filter 介绍
 
-Filter 过滤器这个概念应该大家不会陌生，特别是对与从 Servlet 开始入门学 Java 后台的同学来说。那么这个东西我们能做什么呢？Filter 过滤器主要是用来过滤用户请求的，它允许我们对用户请求进行前置处理和后置处理，比如实现 URL 级别的权限控制、过滤非法请求等等。Filter 过滤器是面向切面编程——AOP的具体实现（AOP切面编程只是一种编程思想而已）。
+Filter 过滤器这个概念应该大家不会陌生，特别是对与从 Servlet 开始入门学 Java 后台的同学来说。那么这个东西我们能做什么呢？Filter 过滤器主要是用来过滤用户请求的，它允许我们对用户请求进行前置处理和后置处理，比如实现 URL 级别的权限控制、过滤非法请求等等。Filter 过滤器是面向切面编程——AOP 的具体实现（AOP切面编程只是一种编程思想而已）。
 
 另外，Filter 是依赖于 Servlet 容器，`Filter`接口就在 Servlet 包下面，属于 Servlet 规范的一部分。所以，很多时候我们也称其为“增强版 Servlet”。
 
@@ -35,11 +35,11 @@ public interface Filter {
 
 ### 3. 如何自定义Filter
 
- 下面提供两种方法。
+下面提供两种方法。
 
 #### 3.1自己手动注册配置实现
 
-自定义的 Filter 需要实现`javax.Servlet.Filter`接口，并重写接口中定义的3个方法。
+**自定义的 Filter 需要实现`javax.Servlet.Filter`接口，并重写接口中定义的3个方法。**
 
 `MyFilter.java`
 
@@ -80,7 +80,7 @@ public class MyFilter implements Filter {
 
 `MyFilterConfig.java`
 
-在配置中注册自定义的过滤器。
+**在配置中注册自定义的过滤器。**
 
 ```java
 @Configuration
@@ -102,7 +102,7 @@ public class MyFilterConfig {
 
 #### 3.2 通过提供好的一些注解实现
 
-在自己的过滤器的类上加上`@WebFilter` 然后在这个注解中通过它提供好的一些参数进行配置。
+**在自己的过滤器的类上加上`@WebFilter` 然后在这个注解中通过它提供好的一些参数进行配置。**
 
 ```java
 @WebFilter(filterName = "MyFilterWithAnnotation", urlPatterns = "/api/*")
@@ -116,7 +116,7 @@ public class MyFilterWithAnnotation implements Filter {
 
 ### 4.定义多个拦截器，并决定它们的执行顺序
 
-加入我们现在又加入了一个过滤器怎么办？
+**假如我们现在又加入了一个过滤器怎么办？**
 
 `MyFilter2.java`
 
@@ -153,7 +153,7 @@ public class MyFilter2 implements Filter {
 
 ```
 
-在配置中注册自定义的过滤器，通过`FilterRegistrationBean` 的`setOrder` 方法可以决定 Filter 的执行顺序。
+**在配置中注册自定义的过滤器，通过`FilterRegistrationBean` 的`setOrder` 方法可以决定 Filter 的执行顺序。**
 
 ```java
 @Configuration
@@ -185,7 +185,26 @@ public class MyFilterConfig {
 }
 ```
 
-实际测试效果如下：
+**自定义 Controller 验证过滤器**
+
+```java
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api")
+public class MyController {
+
+    @GetMapping("/hello")
+    public String getHello() throws InterruptedException {
+        Thread.sleep(1000);
+        return "Hello";
+    }
+}
+```
+
+**实际测试效果如下：**
 
 ```shell
 2019-10-22 22:32:15.569  INFO 1771 --- [           main] g.j.springbootfilter.filter.MyFilter2    : 初始化过滤器2
@@ -198,4 +217,3 @@ public class MyFilterConfig {
 该用户的请求已经处理完毕，请求花费的时间为2：1037
 ```
 
-源代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/source-code/basis/springboot-filter

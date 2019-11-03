@@ -1,4 +1,4 @@
-周末的时候分享了一个技术session，讲到了@RestController 和 @Controller，当时没有太讲清楚，因为 team 里很多同事之前不是做 Java的，所以对这两个东西不太熟悉，于是写了篇文章整理了一下。
+周末的时候分享了一个技术session，讲到了`@RestController` 和 `@Controller`，当时没有太讲清楚，因为 team 里很多同事之前不是做 Java的，所以对这两个东西不太熟悉，于是写了篇文章整理了一下。
 
 ## @RestController vs @Controller
 
