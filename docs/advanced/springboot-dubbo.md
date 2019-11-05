@@ -233,7 +233,7 @@ public interface HelloService {
 
 ### 3. 将项目打成 jar 包供其他项目使用
 
-点击右边的 Maven Projects 然后选择 install ，这样 jar 宝就打好了。
+点击右边的 Maven Projects 然后选择 install ，这样 jar 包就打好了。
 ![](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-27/53371349.jpg)
 
 ## 开始实战 3 ：实现服务提供者 dubbo-provider 
@@ -405,6 +405,6 @@ public class DubboConsumerApplication {
 
 ### 6. 测试效果
 
-浏览器访问 [http://localhost:8330/hello](http://localhost:8330/hello) 页面返回 Hello world，控制台输出 Hello SnailClimb，和预期一直，使用SpringBoot+Dubbo 搭建第一个简单的分布式服务实验成功！
+浏览器访问 [http://localhost:8330/hello](http://localhost:8330/hello) 页面返回 Hello world，控制台输出 Hello SnailClimb，和预期一致，使用SpringBoot+Dubbo 搭建第一个简单的分布式服务实验成功！
 
 代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/source-code/advanced/springboot-dubbo
