@@ -43,6 +43,8 @@ public class PersonControllerTest {
         person.setClassId("82938390");
         person.setEmail("Snailclimb@qq.com");
         person.setRegion("China");
+        person.setPhoneNumber("13615833391");
+
 
         mockMvc.perform(post("/api/person")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -61,6 +63,7 @@ public class PersonControllerTest {
         person.setClassId("82938390");
         person.setEmail("SnailClimb");
         person.setRegion("BeiGuo");
+        person.setPhoneNumber("1361583339");
 
         mockMvc.perform(post("/api/person")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -68,8 +71,9 @@ public class PersonControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("sex").value("sex 值不在可选范围"))
                 .andExpect(MockMvcResultMatchers.jsonPath("name").value("name 不能为空"))
                 .andExpect(MockMvcResultMatchers.jsonPath("email").value("email 格式不正确"))
-                .andExpect(MockMvcResultMatchers.jsonPath("region").value("Region 值不在可选范围内"));
-        ;
+                .andExpect(MockMvcResultMatchers.jsonPath("region").value("Region 值不在可选范围内"))
+                .andExpect(MockMvcResultMatchers.jsonPath("phoneNumber").value("phoneNumber 格式不正确"));
+
     }
 
     @Test

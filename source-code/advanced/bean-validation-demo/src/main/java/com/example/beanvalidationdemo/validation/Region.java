@@ -1,4 +1,4 @@
-package com.example.beanvalidationdemo.entity;
+package com.example.beanvalidationdemo.validation;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

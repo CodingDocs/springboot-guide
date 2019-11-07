@@ -3,6 +3,8 @@ package com.example.beanvalidationdemo.entity;
 import com.example.beanvalidationdemo.constants.Constants;
 import com.example.beanvalidationdemo.service.AddPersonGroup;
 import com.example.beanvalidationdemo.service.DeletePersonGroup;
+import com.example.beanvalidationdemo.validation.PhoneNumber;
+import com.example.beanvalidationdemo.validation.Region;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,6 +34,10 @@ public class Person {
     @Email(message = "email 格式不正确")
     @NotNull(message = "email 不能为空")
     private String email;
+
+    @PhoneNumber(message = "phoneNumber 格式不正确")
+    @NotNull(message = "phoneNumber 不能为空")
+    private String phoneNumber;
 
     @Region
     private String region;

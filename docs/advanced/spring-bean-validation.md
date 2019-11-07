@@ -1,23 +1,10 @@
-数据的校验的重要性就不用说了，即使在前端对数据进行校验的情况下，我们还是要对传入后端的数据再进行一遍校验，避免用户绕过浏览器直接通过一些 HTTP 工具直接向后端请求一些违法数据。
+**数据的校验的重要性就不用说了，即使在前端对数据进行校验的情况下，我们还是要对传入后端的数据再进行一遍校验，避免用户绕过浏览器直接通过一些 HTTP 工具直接向后端请求一些违法数据。**
 
-最近工作中很多地方需要对参数做一些校验，刚开始的时候除了Controller层接受的对象我是直接通过一些 Spring 提供好的注解来实现校验比如`@Valid`、`@NotNull`  等等，在一些需要对参数做校验的其他地方我都是通过手动编程if else判断的方式来实现。后面重构代码发现有更好的方式来满足我的需求，然后花了半天时间对这部分内容做了一个简单的总结，希望可以对不了解这部分知识的朋友有帮助。
+本文结合自己在项目中的实际使用经验，可以说**文章介绍的内容很实用，不了解的朋友可以学习一下，后面可以立马实践到项目上去。**
 
 下面我会通过实例程序演示如何在 Java 程序中尤其是 Spring 程序中优雅地的进行参数验证。
 
-- [基础知识和依赖](#基础知识和依赖)
-    - [相关依赖](#相关依赖)
-    - [实体类](#实体类)
-- [验证Controller的输入](#验证controller的输入)
-    - [验证请求体(RequestBody)](#验证请求体requestbody)
-    - [验证请求参数(Path Variables 和 Request Parameters)](#验证请求参数path-variables-和-request-parameters)
-- [验证 Service 中的方法](#验证-service-中的方法)
-- [Validator 编程方式手动进行参数验证](#validator-编程方式手动进行参数验证)
-- [自定义 Validator](#自定以-validator)
-- [使用验证组](#使用验证组)
-- [TODO](#todo)
-- [参考](#参考)
-
-## 基础知识和依赖
+## 基础设施搭建
 
 ### 相关依赖
 
@@ -357,9 +344,13 @@ public class PersonServiceTest {
 Validator validate
 ```
 
-## 自定以 Validator
+## 自定以 Validator(实用)
 
-如果自带的校验注解无法满足你的需求的话，你还可以自定义实现注解。比如我们的Person类多了一个 region 字段，region 字段只能是`China`、`China-Taiwan`、`China-HongKong`这三个中的一个。
+如果自带的校验注解无法满足你的需求的话，你还可以自定义实现注解。
+
+### 案例一:校验特定字段的值是否在可选范围
+
+比如我们现在多了这样一个需求：Person类多了一个 region 字段，region 字段只能是`China`、`China-Taiwan`、`China-HongKong`这三个中的一个。
 
 第一步你需要创建一个注解：
 
@@ -406,9 +397,63 @@ public class RegionValidator implements ConstraintValidator<Region, String> {
     private String region;
 ```
 
+### 案例二:校验电话号码
+
+校验我们的电话号码是否合法，这个可以通过正则表达式来做，相关的正则表达式都可以在网上搜到，你甚至可以搜索到针对特定运营商电话号码段的正则表达式。
+
+`PhoneNumber.java`
+
+```java
+import javax.validation.Constraint;
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.PARAMETER;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+@Documented
+@Constraint(validatedBy = PhoneNumberValidator.class)
+@Target({FIELD, PARAMETER})
+@Retention(RUNTIME)
+public @interface PhoneNumber {
+    String message() default "Invalid phone number";
+    Class[] groups() default {};
+    Class[] payload() default {};
+}
+```
+
+`PhoneNumberValidator.java`
+
+```java
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+public class PhoneNumberValidator implements ConstraintValidator<PhoneNumber,String> {
+
+    @Override
+    public boolean isValid(String phoneField, ConstraintValidatorContext context) {
+        if (phoneField == null) {
+            // can be null
+            return true;
+        }
+        return phoneField.matches("^1(3[0-9]|4[57]|5[0-35-9]|8[0-9]|70)\\d{8}$") && phoneField.length() > 8 && phoneField.length() < 14;
+    }
+}
+```
+
+搞定，我们现在就可以使用这个注解了。
+
+```java
+@PhoneNumber(message = "phoneNumber 格式不正确")
+@NotNull(message = "phoneNumber 不能为空")
+private String phoneNumber;
+```
+
 ## 使用验证组
 
-很多时候我们需要使用到验证组，这样说可能不太清楚，说简单点就是对对象操作的不同方法有不同的验证规则，示例如下。
+某些场景下我们需要使用到验证组，这样说可能不太清楚，说简单点就是对对象操作的不同方法有不同的验证规则，示例如下（这个就我目前经历的项目来说使用的比较少，因为本身这个在代码层面理解起来是比较麻烦的，然后写起来也比较麻烦）。
 
 先创建两个接口：
 
@@ -474,6 +519,8 @@ public class PersonService {
 使用验证组这种方式的时候一定要小心，这是一种反模式，还会造成代码逻辑性变差。
 
 代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/source-code/advanced/bean-validation-demo
+
+
 
 ## TODO
 
