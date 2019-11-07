@@ -520,11 +520,17 @@ public class PersonService {
 
 代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/source-code/advanced/bean-validation-demo
 
+## `@NotNull` vs `@Column(nullable = false)`(重要)
 
+在使用 JPA 操作数据的时候会经常碰到 `@Column(nullable = false)`  这种类型的约束，那么它和 `@NotNull` 有何区别呢？搞清楚这个还是很重要的！
+
+- `@NotNull`是 JSR 303 Bean验证批注,它与数据库约束本身无关。
+- `@Column(nullable = false)` : 是JPA声明列为非空的方法。
+
+总结来说就是即前者用于验证，而后者则用于指示数据库创建表的时候对表的约束。
 
 ## TODO
 
-- [ ] JPA 数据库级别参数约束验证
 - [ ] 原理分析
 
 ## 参考
