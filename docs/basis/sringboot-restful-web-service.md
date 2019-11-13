@@ -121,4 +121,4 @@ public class BookController {
 
 通过本文我们需到了使用 Lombok 来优化 Java 代码，以及一些开发 RestFul Web 服务常用的注解：`@RestController`  、`@RequestMapping`、`@PostMapping`、`@PathVariable`、`@RequestParam`、`@RequestBody`以及和HTTP Response 有关的 `Responsity`类。关于这些知识点的用法，我在上面都有介绍到，更多用法还需要自己去查阅相关文档。
 
-代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/source-code/start/hello-world（建议自己手敲一遍！！！）
+代码地址：<https://github.com/Snailclimb/springboot-guide/tree/master/source-code/start/hello-world>（建议自己手敲一遍！！！）
