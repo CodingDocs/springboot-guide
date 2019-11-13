@@ -1,4 +1,4 @@
-package com.example.demo.scheduletask.config;
+package github.javaguide.springbootscheduletask.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;

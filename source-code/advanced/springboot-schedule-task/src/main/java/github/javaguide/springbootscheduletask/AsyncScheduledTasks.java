@@ -1,4 +1,4 @@
-package com.example.demo;
+package github.javaguide.springbootscheduletask;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,7 +44,7 @@ public class AsyncScheduledTasks {
         if (i == 0) {
             log.info("start time is {}", dateFormat.format(new Date()));
         }
-        if (i < 5) {
+        if (i < 4) {
             try {
                 TimeUnit.SECONDS.sleep(index.get(i));
                 log.info("Fixed Rate Task : The time is now {}", dateFormat.format(new Date()));
