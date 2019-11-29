@@ -75,6 +75,8 @@ public enum ErrorCode {
 
 **`ErrorReponse.java`（返回给客户端具体的异常对象）**
 
+这个类作为异常信息返回给客户端，里面包括了当出现异常时我们想要返回给客户端的所有信息。
+
 ```java
 import org.springframework.util.ObjectUtils;
 
@@ -127,6 +129,8 @@ public class ErrorReponse {
 
 **`BaseException.java`（继承自 `RuntimeException` 的抽象类，可以看做系统中其他异常类的父类）**
 
+系统中的异常类都要继承自这个类。
+
 ```java
 
 public abstract class BaseException extends RuntimeException {
@@ -177,7 +181,9 @@ public class ResourceNotFoundException extends BaseException {
 
 **`GlobalExceptionHandler.java`（全局异常捕获）**
 
-`@ExceptionHandler` 捕获异常的过程中，会优先找到最匹配的。
+我们定义了两个异常捕获方法。
+
+这里再说明一下，实际上这个类只需要 `handleAppException()` 这一个方法就够了，因为它是本系统所有异常的父类。只要是抛出了继承 `BaseException` 类的异常后都会在这里被处理。
 
 ```java
 import com.twuc.webApp.web.ExceptionController;
@@ -192,7 +198,9 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice(assignableTypes = {ExceptionController.class})
 @ResponseBody
 public class GlobalExceptionHandler {
-
+    
+    // 也可以将 BaseException 换为 RuntimeException 
+    // 因为 RuntimeException 是 BaseException 的父类
     @ExceptionHandler(BaseException.class)
     public ResponseEntity<?> handleAppException(BaseException ex, HttpServletRequest request) {
         ErrorReponse representation = new ErrorReponse(ex, request.getRequestURI());
@@ -207,6 +215,43 @@ public class GlobalExceptionHandler {
 }
 
 ```
+
+**（重要）一点扩展：**
+
+哈哈！实际上我多加了一个算是多余的异常捕获方法`handleResourceNotFoundException()` 主要是为了考考大家当我们抛出了 `ResourceNotFoundException`异常会被下面哪一个方法捕获呢？
+
+答案：
+
+会被`handleResourceNotFoundException()`方法捕获。因为 `@ExceptionHandler` 捕获异常的过程中，会优先找到最匹配的。
+
+下面通过源码简单分析一下：
+
+`ExceptionHandlerMethodResolver.java`中`getMappedMethod`决定了具体被哪个方法处理。
+
+```java
+
+@Nullable
+	private Method getMappedMethod(Class<? extends Throwable> exceptionType) {
+		List<Class<? extends Throwable>> matches = new ArrayList<>();
+    //找到可以处理的所有异常信息。mappedMethods 中存放了异常和处理异常的方法的对应关系
+		for (Class<? extends Throwable> mappedException : this.mappedMethods.keySet()) {
+			if (mappedException.isAssignableFrom(exceptionType)) {
+				matches.add(mappedException);
+			}
+		}
+    // 不为空说明有方法处理异常
+		if (!matches.isEmpty()) {
+			matches.sort(new ExceptionDepthComparator(exceptionType));
+      // 返回处理异常的方法
+			return this.mappedMethods.get(matches.get(0));
+		}
+		else {
+			return null;
+		}
+	}
+```
+
+从源代码看出：**`getMappedMethod()`会首先找到可以匹配处理异常的所有方法信息，然后对其进行从小到大的排序，最后取最小的那一个匹配的方法(即匹配度最高的那个)。**
 
 ## 写一个抛出异常的类测试
 
