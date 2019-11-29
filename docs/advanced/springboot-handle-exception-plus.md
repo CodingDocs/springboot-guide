@@ -241,6 +241,7 @@ public class GlobalExceptionHandler {
 		}
     // 不为空说明有方法处理异常
 		if (!matches.isEmpty()) {
+      // 按照匹配程度从小到大排序
 			matches.sort(new ExceptionDepthComparator(exceptionType));
       // 返回处理异常的方法
 			return this.mappedMethods.get(matches.get(0));
