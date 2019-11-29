@@ -1,6 +1,5 @@
 package com.twuc.webApp.exception;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.util.ObjectUtils;
 
 import java.time.Instant;

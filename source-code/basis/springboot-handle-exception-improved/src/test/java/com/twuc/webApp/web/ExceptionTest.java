@@ -21,7 +21,7 @@ public class ExceptionTest {
 
     @Test
     void should_return_400_if_param_not_valid() throws Exception {
-        mockMvc.perform(get("/api/illegalArgumentException"))
+        mockMvc.perform(get("/api/resourceNotFound"))
                 .andExpect(status().is(400))
                 .andExpect(jsonPath("$.message").value("参数错误!"));
     }

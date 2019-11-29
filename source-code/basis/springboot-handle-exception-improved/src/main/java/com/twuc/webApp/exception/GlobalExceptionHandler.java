@@ -27,9 +27,8 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(value = ResourceNotFoundException.class)
-    public ResponseEntity<ErrorReponse> exceptionHandler(ResourceNotFoundException ex, HttpServletRequest request) {
+    public ResponseEntity<ErrorReponse> handleResourceNotFoundException(ResourceNotFoundException ex, HttpServletRequest request) {
         ErrorReponse errorReponse = new ErrorReponse(ex, request.getRequestURI());
-        System.out.println(errorReponse.toString());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorReponse);
     }
 }

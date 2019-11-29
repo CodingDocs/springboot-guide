@@ -270,10 +270,8 @@ public class ResponseStatusExceptionController {
 
 本文主要讲了 3 种捕获处理异常的方式：
 
-1. 使用 **`@ControllerAdvice`和`**@ExceptionHandler`处理全局异常
+1. 使用 `@ControllerAdvice` 和 `@ExceptionHandler` 处理全局异常
 2. `@ExceptionHandler` 处理 Controller 级别的异常
 3. `ResponseStatusException` 
-
-
 
 代码地址：https://github.com/Snailclimb/springboot-guide/tree/master/source-code/basis/springboot-handle-exception
