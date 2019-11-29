@@ -20,11 +20,9 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(BaseException.class)
     public ResponseEntity<?> handleAppException(BaseException ex, HttpServletRequest request) {
-        String path = request.getRequestURI();
-        ErrorReponse representation = new ErrorReponse(ex, path);
+        ErrorReponse representation = new ErrorReponse(ex, request.getRequestURI());
         return new ResponseEntity<>(representation, new HttpHeaders(), ex.getError().getStatus());
     }
-
 
     @ExceptionHandler(value = ResourceNotFoundException.class)
     public ResponseEntity<ErrorReponse> handleResourceNotFoundException(ResourceNotFoundException ex, HttpServletRequest request) {

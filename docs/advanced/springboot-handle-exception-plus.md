@@ -35,6 +35,7 @@ import org.springframework.http.HttpStatus;
 
 
 public enum ErrorCode {
+  
     RESOURCE_NOT_FOUND(1001, HttpStatus.NOT_FOUND, "未找到该资源"),
     REQUEST_VALIDATION_FAILED(1002, HttpStatus.BAD_REQUEST, "请求数据格式验证失败");
     private final int code;
@@ -127,20 +128,13 @@ public class ErrorReponse {
 **`BaseException.java`（继承自 `RuntimeException` 的抽象类，可以看做系统中其他异常类的父类）**
 
 ```java
-import org.springframework.util.ObjectUtils;
 
-import java.util.HashMap;
-import java.util.Map;
-
-/**
- * @author shuang.kou
- */
 public abstract class BaseException extends RuntimeException {
     private final ErrorCode error;
     private final HashMap<String, Object> data = new HashMap<>();
 
     public BaseException(ErrorCode error, Map<String, Object> data) {
-        super(format(error.getCode(), error.getMessage(), data));
+        super(error.getMessage());
         this.error = error;
         if (!ObjectUtils.isEmpty(data)) {
             this.data.putAll(data);
@@ -148,15 +142,11 @@ public abstract class BaseException extends RuntimeException {
     }
 
     protected BaseException(ErrorCode error, Map<String, Object> data, Throwable cause) {
-        super(format(error.getCode(), error.getMessage(), data), cause);
+        super(error.getMessage(), cause);
         this.error = error;
         if (!ObjectUtils.isEmpty(data)) {
             this.data.putAll(data);
         }
-    }
-
-    private static String format(Integer code, String message, Map<String, Object> data) {
-        return String.format("[%d]%s:%s.", code, message, ObjectUtils.isEmpty(data) ? "" : data.toString());
     }
 
     public ErrorCode getError() {
@@ -190,20 +180,24 @@ public class ResourceNotFoundException extends BaseException {
 `@ExceptionHandler` 捕获异常的过程中，会优先找到最匹配的。
 
 ```java
-/**
- * @author shuang.kou
- */
+import com.twuc.webApp.web.ExceptionController;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import javax.servlet.http.HttpServletRequest;
+
 @ControllerAdvice(assignableTypes = {ExceptionController.class})
 @ResponseBody
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(BaseException.class)
     public ResponseEntity<?> handleAppException(BaseException ex, HttpServletRequest request) {
-        String path = request.getRequestURI();
-        ErrorReponse representation = new ErrorReponse(ex, path);
+        ErrorReponse representation = new ErrorReponse(ex, request.getRequestURI());
         return new ResponseEntity<>(representation, new HttpHeaders(), ex.getError().getStatus());
     }
-
 
     @ExceptionHandler(value = ResourceNotFoundException.class)
     public ResponseEntity<ErrorReponse> handleResourceNotFoundException(ResourceNotFoundException ex, HttpServletRequest request) {

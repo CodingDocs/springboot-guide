@@ -13,7 +13,7 @@ public abstract class BaseException extends RuntimeException {
     private final HashMap<String, Object> data = new HashMap<>();
 
     public BaseException(ErrorCode error, Map<String, Object> data) {
-        super(format(error.getCode(), error.getMessage(), data));
+        super(error.getMessage());
         this.error = error;
         if (!ObjectUtils.isEmpty(data)) {
             this.data.putAll(data);
@@ -21,15 +21,11 @@ public abstract class BaseException extends RuntimeException {
     }
 
     protected BaseException(ErrorCode error, Map<String, Object> data, Throwable cause) {
-        super(format(error.getCode(), error.getMessage(), data), cause);
+        super(error.getMessage(), cause);
         this.error = error;
         if (!ObjectUtils.isEmpty(data)) {
             this.data.putAll(data);
         }
-    }
-
-    private static String format(Integer code, String message, Map<String, Object> data) {
-        return String.format("[%d]%s:%s.", code, message, ObjectUtils.isEmpty(data) ? "" : data.toString());
     }
 
     public ErrorCode getError() {
