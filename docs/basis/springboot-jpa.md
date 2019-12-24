@@ -232,7 +232,6 @@ Person 部分属性查询，避免 `select *`操作：
 ```java
 
     @Modifying
-    @Transactional
     @Query("update Person p set p.name = ?1 where p.id = ?2")
     void updatePersonNameById(String name, Long id);
 ```
