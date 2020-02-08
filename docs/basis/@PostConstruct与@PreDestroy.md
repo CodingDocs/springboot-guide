@@ -99,7 +99,7 @@ Gradle:
 compile group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
 ```
 
-
+> 源码地址：https://github.com/Snailclimb/springboot-guide/tree/master/source-code/basis/life-cycle-annotation
 
 推荐阅读：
 
