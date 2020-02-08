@@ -24,15 +24,16 @@
 ### 基础
 
 1. **[开发 RestFul Web 服务](./docs/basis/sringboot-restful-web-service.md)**
-2. **[RestController VS Controller](./docs/basis/RestControllerVSController.md)** 
-3. **[Spring Boot 异常处理](./docs/advanced/springboot-handle-exception.md)**
-4. **[实际项目中我们是这样做异常处理的](./docs/advanced/springboot-handle-exception-plus.md)**
-5. [使用 spring-boot-devtools 进行热部署](./docs/basis/spring-boot-devtools.md)
-6. **[ Spring Boot JPA 基础：常见操作解析](./docs/basis/springboot-jpa.md)**
-7. **[JPA 中非常重要的连表查询就是这么简单](./docs/basis/springboot-jpa-lianbiao.md)**
-8. [SpringBoot 实现过滤器](./docs/basis/springboot-filter.md)
-9. [SpringBoot 实现拦截器](./docs/basis/springboot-interceptor.md)
-10. [整合 SpringBoot+Mybatis](./docs/basis/springboot-mybatis.md) 、[SpirngBoot2.0+ 的 SpringBoot+Mybatis 多数据源配置](./docs/basis/springboot-mybatis-mutipledatasource.md)
+2. [RestController VS Controller](./docs/basis/RestControllerVSController.md)
+3. [`@PostConstruct`和`@PreDestroy` 简单使用以及Java9+中的替代方案]() 
+4. **[Spring Boot 异常处理](./docs/advanced/springboot-handle-exception.md)**
+5. **[实际项目中我们是这样做异常处理的](./docs/advanced/springboot-handle-exception-plus.md)**
+6. [使用 spring-boot-devtools 进行热部署](./docs/basis/spring-boot-devtools.md)
+7. **[ Spring Boot JPA 基础：常见操作解析](./docs/basis/springboot-jpa.md)**
+8. **[JPA 中非常重要的连表查询就是这么简单](./docs/basis/springboot-jpa-lianbiao.md)**
+9. [SpringBoot 实现过滤器](./docs/basis/springboot-filter.md)
+10. [SpringBoot 实现拦截器](./docs/basis/springboot-interceptor.md)
+11. [整合 SpringBoot+Mybatis](./docs/basis/springboot-mybatis.md) 、[SpirngBoot2.0+ 的 SpringBoot+Mybatis 多数据源配置](./docs/basis/springboot-mybatis-mutipledatasource.md)
 
 ### 进阶
 
