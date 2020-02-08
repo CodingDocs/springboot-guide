@@ -25,7 +25,7 @@
 
 1. **[开发 RestFul Web 服务](./docs/basis/sringboot-restful-web-service.md)**
 2. [RestController VS Controller](./docs/basis/RestControllerVSController.md)
-3. [`@PostConstruct`和`@PreDestroy` 简单使用以及Java9+中的替代方案]() 
+3. [`@PostConstruct`和`@PreDestroy` 简单使用以及Java9+中的替代方案](./docs/basis/@PostConstruct与@PreDestroy.md) 
 4. **[Spring Boot 异常处理](./docs/advanced/springboot-handle-exception.md)**
 5. **[实际项目中我们是这样做异常处理的](./docs/advanced/springboot-handle-exception-plus.md)**
 6. [使用 spring-boot-devtools 进行热部署](./docs/basis/spring-boot-devtools.md)
