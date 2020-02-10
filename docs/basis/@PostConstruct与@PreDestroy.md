@@ -1,4 +1,4 @@
-`@PostConstruct`和`@PreDestroy` 是两个作用于Servlet生命周期的注解，相信从 Servlet 开始学 Java 家后台开发的同学对他应该不陌生。
+`@PostConstruct`和`@PreDestroy` 是两个作用于 Servlet 生命周期的注解，相信从 Servlet 开始学 Java 后台开发的同学对他应该不陌生。
 
 **被这两个注解修饰的方法可以保证在整个 Servlet 生命周期只被执行一次，即使 Web 容器在其内部中多次实例化该方法所在的 bean。**
 
