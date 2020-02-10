@@ -158,5 +158,3 @@ List<UserDTO> userDTOS = personRepository.filterUserInfoByAge(19,20);
 1. 自定义 SQL 语句实现连表查询；
 2. 自定义 SQL 语句连表查询并实现分页操作；
 3. 条件查询：IN 查询，BETWEEN查询。
-
-我们这一节是把 SQl 语句连表查询的逻辑放在 Dao 层直接写的，这样写的好处是比较方便，也比较简单明了。但是可能会不太好维护，很多时候我们会选择将这些逻辑放到 Service 层去做，这样也是可以实现的，下面文章我就会介绍到如何将这些写在 Dao 层的逻辑转移到 Service 层去。
