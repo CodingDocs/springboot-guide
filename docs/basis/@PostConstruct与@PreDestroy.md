@@ -81,7 +81,7 @@ public class MyConfiguration2 implements InitializingBean, DisposableBean {
 
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-11/life-cycle-annotation02.jpg)
 
-但是,Spring 官方不推荐使用上面这种方式，Spring 官方文档是这样说的：
+但是,Spring 官方不推荐使用上面这种方式，[Spring 官方文档](https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-factory-lifecycle)是这样说的：
 
 > We recommend that you do not use the `InitializingBean` interface, because it unnecessarily couples the code to Spring. Alternatively, we suggest using the [`@PostConstruct`](https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-postconstruct-and-predestroy-annotations) annotation or specifying a POJO initialization method. (我们建议您不要使用 `InitializingBean`回调接口，因为它不必要地将代码耦合到 Spring。另外，我们建议使用`@PostConstruct`注解或指定bean定义支持的通用方法。)
 
