@@ -48,7 +48,7 @@ public class MyConfiguration {
 
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-11/life-cycle-annotation01.jpg)
 
-但是 J2EE已在Java 9中弃用 `@PostConstruct`和`@PreDestroy`这两个注解 ，并计划在Java 11中将其删除。我们有什么更好的替代方法吗？当然有！而且，我比较推荐使用这种方式。
+但是 J2EE已在Java 9中弃用 `@PostConstruct`和`@PreDestroy`这两个注解 ，并计划在Java 11中将其删除。我们有什么更好的替代方法吗？当然有！
 
 ```java
 package cn.javaguide.config;
@@ -80,6 +80,10 @@ public class MyConfiguration2 implements InitializingBean, DisposableBean {
 输出结果如下，可以看出实现Spring 提供的  `InitializingBean`和 `DisposableBean`接口的效果和使用`@PostConstruct`和`@PreDestroy` 注解的效果一样。
 
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-11/life-cycle-annotation02.jpg)
+
+但是,Spring 官方不推荐使用上面这种方式，Spring 官方文档是这样说的：
+
+> We recommend that you do not use the `InitializingBean` interface, because it unnecessarily couples the code to Spring. Alternatively, we suggest using the [`@PostConstruct`](https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-postconstruct-and-predestroy-annotations) annotation or specifying a POJO initialization method. (我们建议您不要使用 `InitializingBean`回调接口，因为它不必要地将代码耦合到 Spring。另外，我们建议使用`@PostConstruct`注解或指定bean定义支持的通用方法。)
 
 如果你还是非要使用 Java 9 及以后的版本使用 `@PostConstruct`和`@PreDestroy`  这两个注解的话，你也可以手动添加相关依赖。 
 
