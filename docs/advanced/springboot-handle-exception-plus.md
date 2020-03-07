@@ -267,7 +267,7 @@ public class Person {
 }
 ```
 
-**`ExceptionController.java`（抛出一场的类）**
+**`ExceptionController.java`（抛出异常的类）**
 
 ```java
 @RestController
