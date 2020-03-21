@@ -1,4 +1,8 @@
-在上一篇文章中我介绍了：
+
+
+> 这篇文章鸽了很久，我在这篇文章 [《用好Java中的枚举，真的没有那么简单！》](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247486111&idx=2&sn=8299a42edc4733bdf012ebfe9ebf3fbb&chksm=cea24554f9d5cc42eac0e0ecd851c201831f3b149e64fe11f94b548031f10ff2dac1ea9743d3&token=1729829670&lang=zh_CN#rd) 中就提到要分享。还是昨天一个读者提醒我之后，我才发现自己没有将这篇文章发到公众号。说到这里，我发现自己一个很大的问题，就是有时候在文章里面说要更新什么，结果后面就忘记了，很多时候不是自己没写，就因为各种事情混杂导致忘记发了。以后要尽量改正这个问题！
+
+在上一篇文章[《SpringBoot 处理异常的几种常见姿势》](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485568&idx=2&sn=c5ba880fd0c5d82e39531fa42cb036ac&chksm=cea2474bf9d5ce5dcbc6a5f6580198fdce4bc92ef577579183a729cb5d1430e4994720d59b34&token=1729829670&lang=zh_CN#rd)中我介绍了：
 
 1. 使用 `@ControllerAdvice` 和 `@ExceptionHandler` 处理全局异常
 2. `@ExceptionHandler` 处理 Controller 级别的异常
