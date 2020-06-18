@@ -1,5 +1,3 @@
-[推荐一下：阿里云高性能服务器，1核1g最低89，不限性能。](https://www.aliyun.com/minisite/goods?userCode=hf47liqn)
-
 <p align="center">
 <a href="https://github.com/Snailclimb/springboot-guide" target="_blank">
 	<img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/spring-boot-guide.png" width=""/>
@@ -45,7 +43,6 @@
 3. **[如何在 Spring/Spring Boot 中做参数校验？你需要了解的都在这里！](./docs/advanced/spring-bean-validation.md)**
 4. [5分钟搞懂如何在Spring Boot中Schedule Tasks](./docs/advanced/SpringBoot-ScheduleTasks.md) 
 5. **[新手也能看懂的 Spring Boot 异步编程指南](./docs/advanced/springboot-async.md)**
-6. **[Spring Boot 整合 阿里云OSS 存储服务，快来免费搭建一个自己的图床](https://github.com/Snailclimb/springboot-aliyun-oss)** 
 7. **[Kafka 入门+SpringBoot整合Kafka系列](https://github.com/Snailclimb/springboot-kafka)**
 8. [超详细，新手都能看懂 ！使用Spring Boot+Dubbo 搭建一个分布式服务](./docs/advanced/springboot-dubbo.md)
 9. [从零入门 ！Spring Security With JWT（含权限验证）](https://github.com/Snailclimb/spring-security-jwt-guide)
@@ -68,8 +65,6 @@
 ### 公众号
 
 如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号。
-
-**《Java面试突击》:** 由本文档衍生的专为面试而生的《Java面试突击》V2.0 PDF 版本[公众号](#公众号)后台回复 **"Java面试突击"** 即可免费领取！
 
 **Java工程师必备学习资源:** 一些Java工程师常用学习资源公众号后台回复关键字 **“1”** 即可免费无套路获取。   
 

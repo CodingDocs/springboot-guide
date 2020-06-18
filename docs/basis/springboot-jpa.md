@@ -38,6 +38,8 @@ JPA 这部分内容上手很容易，但是涉及到的东西还是挺多的，�
 
 ## 2.配置数据库连接信息和JPA配置
 
+由于使用的是 h2 内存数据库，所以你直接运行项目数据库就会自动创建好。
+
 下面的配置中需要单独说一下 `spring.jpa.hibernate.ddl-auto=create`这个配置选项。
 
 这个属性常用的选项有四种：
@@ -50,15 +52,22 @@ JPA 这部分内容上手很容易，但是涉及到的东西还是挺多的，�
 但是，**一定要不要在生产环境使用 ddl 自动生成表结构，一般推荐手写 SQL 语句配合 Flyway 来做这些事情。**
 
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/springboot_jpa?useSSL=false&serverTimezone=CTT
+# 数据库url地址
+spring.datasource.url=jdbc:h2:mem:jpa-demo
 spring.datasource.username=root
 spring.datasource.password=123456
+spring.datasource.platform=h2
+spring.datasource.driverClassName =org.h2.Driver
+
+spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true
 # 打印出 sql 语句
 spring.jpa.show-sql=true
-spring.jpa.hibernate.ddl-auto=create
+spring.jpa.hibernate.ddl-auto=update
 spring.jpa.open-in-view=false
-# 创建的表的 ENGINE 为 InnoDB
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL55Dialect
+server.port=8080
+#H2控制台
+spring.h2.console.enabled=true
+
 ```
 
 ## 3.实体类
