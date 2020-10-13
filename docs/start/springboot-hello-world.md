@@ -36,7 +36,7 @@ com
       +- controller
       |  +- CustomerController.java
       |  
-      | +- config
+      +- config
       |  +- swagerConfig.java
       |
 ```
