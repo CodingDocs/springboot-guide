@@ -47,7 +47,11 @@
 8. [超详细，新手都能看懂 ！使用Spring Boot+Dubbo 搭建一个分布式服务](./docs/advanced/springboot-dubbo.md)
 9. [从零入门 ！Spring Security With JWT（含权限验证）](https://github.com/Snailclimb/spring-security-jwt-guide)
 
-### 面试题
+## 实战项目
+
+1. [Spring Boot搭建的一个在线文件预览系统！支持ppt、doc等多种类型文件预览](./docs/projects/kkFileView-基于Spring Boot在线文件预览系统.md)
+
+## 面试题
 
 - [几道简单的 SpringBoot面试题](./docs/interview/springboot-questions.md)
 
