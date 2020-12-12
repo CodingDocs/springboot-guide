@@ -152,8 +152,3 @@ server.port=8333
 
 代码地址: https://github.com/Snailclimb/springboot-guide/tree/master/source-code/start/hello-world（建议自己手敲一遍！！！）
 
-### 代办
-
-- [ ] Spring Boot 启动流程分析
-
-  
