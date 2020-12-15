@@ -24,6 +24,7 @@
 6. **JPA** : [ Spring Boot JPA 基础：常见操作解析](./docs/basis/springboot-jpa.md) 、 [JPA 中非常重要的连表查询就是这么简单](./docs/basis/springboot-jpa-lianbiao.md)
 7. **拦截器和过滤器** ：[SpringBoot 实现过滤器](./docs/basis/springboot-filter.md) 、[SpringBoot 实现拦截器](./docs/basis/springboot-interceptor.md)
 8. **MyBatis**  ：[整合 SpringBoot+Mybatis](./docs/basis/springboot-mybatis.md) 、[SpirngBoot2.0+ 的 SpringBoot+Mybatis 多数据源配置](./docs/basis/springboot-mybatis-mutipledatasource.md) （TODO:早期文章，不建议阅读，待重构~）
+9. [SpringBoot 2.0+ 集成 Swagger 官方 Starter + knife4j 增强方案](./docs/basis/swagger.md)
 
 ### 进阶
 
