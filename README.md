@@ -43,8 +43,10 @@
 
 ## 实战项目
 
-1. [Spring Boot搭建的一个在线文件预览系统！支持ppt、doc等多种类型文件预览](./docs/projects/kkFileView-基于Spring Boot在线文件预览系统.md)
-2. [一份热乎的 SpringBoot 前后端分离后台管理系统分析！分模块开发、RBAC权限控制...](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247495011&idx=1&sn=f574f5d75c3720d8b2a665d1d5234d28&chksm=cea1a2a8f9d62bbe9f13f5a030893fe3da6956c4be41471513e6247f74cba5a8df9941798b6e&token=212861022&lang=zh_CN#rd)
+1. [使用 Spring Boot搭建一个在线文件预览系统！支持ppt、doc等多种类型文件预览](./docs/projects/kkFileView-基于Spring Boot在线文件预览系统.md)
+2. [ SpringBoot 前后端分离后台管理系统分析！分模块开发、RBAC权限控制...](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247495011&idx=1&sn=f574f5d75c3720d8b2a665d1d5234d28&chksm=cea1a2a8f9d62bbe9f13f5a030893fe3da6956c4be41471513e6247f74cba5a8df9941798b6e&token=212861022&lang=zh_CN#rd)
+3. [一个基于Spring Cloud 的面试刷题系统。](./docs/projects/SpringCloud刷题系统.md)
+4. [一个基于 Spring Boot 的在线考试系统](./docs/projects/一个基于SpringBoot的在线考试系统.md)
 
 ## 面试题
 
