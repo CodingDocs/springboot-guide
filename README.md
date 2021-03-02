@@ -48,11 +48,6 @@
 3. [一个基于Spring Cloud 的面试刷题系统。](./docs/projects/SpringCloud刷题系统.md)
 4. [一个基于 Spring Boot 的在线考试系统](./docs/projects/一个基于SpringBoot的在线考试系统.md)
 
-## 面试题
-
-- [几道简单的 SpringBoot面试题](./docs/interview/SpringBoot面试题.md)
-- [RestController VS Controller](./docs/basis/RestControllerVSController.md)
-
 ## 说明
 
 1. 项目 logo 由 [logoly](https://logoly.pro/#/) 生成。
