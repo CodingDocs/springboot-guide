@@ -12,7 +12,7 @@
 
 >  Cron 表达式:  主要用于定时作业(定时任务)系统定义执行时间或执行频率的表达式，非常厉害，你可以通过 Cron 表达式进行设置定时任务每天或者每个月什么时候执行等等操作。
 >
-> 推荐一个在线Cron表达式生成器：[http://cron.qqe2.com/](http://cron.qqe2.com/)
+> 推荐一个在线Cron表达式生成器： [https://crontab.guru/](https://crontab.guru/)
 
 ```java
 import org.slf4j.Logger;
