@@ -61,9 +61,9 @@ PowerMock是一个Java模拟框架，可用于解决通常认为很难甚至无�
 ```java
 InterfaceToMock mock = Powermockito.mock(InterfaceToMock.class)
 
-        Powermockito.when(mock.method(Params…)).thenReturn(value)
+Powermockito.when(mock.method(Params…)).thenReturn(value)
 
-        Powermockito.when(mock.method(Params..)).thenThrow(Exception)
+Powermockito.when(mock.method(Params..)).thenThrow(Exception)
 ```
 
 ##### 4.2 设置对象的private属性
@@ -137,9 +137,9 @@ Powermockito.mockStatic(FinalClassToMock.class);
 ```java
 1） PowerMockito.spy(TargetClass.class);
 
-        2） Powemockito.when(TargetClass.targetMethod()).doReturn()
+2） Powemockito.when(TargetClass.targetMethod()).doReturn()
 
-        3） 注意加入
+3） 注意加入
 
 @RunWith(PowerMockRunner.class)
 
