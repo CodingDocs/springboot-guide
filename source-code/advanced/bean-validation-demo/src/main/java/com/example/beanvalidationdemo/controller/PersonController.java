@@ -1,12 +1,9 @@
 package com.example.beanvalidationdemo.controller;
 
-import com.example.beanvalidationdemo.entity.Person;
+import com.example.beanvalidationdemo.entity.PersonRequest;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -20,21 +17,21 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/persons")
 @Validated
 public class PersonController {
 
-    @PostMapping("/person")
-    public ResponseEntity<Person> getPerson(@RequestBody @Valid Person person) {
-        return ResponseEntity.ok().body(person);
+    @PostMapping
+    public ResponseEntity<PersonRequest> save(@RequestBody @Valid PersonRequest personRequest) {
+        return ResponseEntity.ok().body(personRequest);
     }
 
-    @GetMapping("/person/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Integer> getPersonByID(@Valid @PathVariable("id") @Max(value = 5, message = "超过 id 的范围了") Integer id) {
         return ResponseEntity.ok().body(id);
     }
 
-    @PutMapping("/person")
+    @PutMapping
     public ResponseEntity<String> getPersonByName(@Valid @RequestParam("name") @Size(max = 6, message = "超过 name 的范围了") String name) {
         return ResponseEntity.ok().body(name);
     }

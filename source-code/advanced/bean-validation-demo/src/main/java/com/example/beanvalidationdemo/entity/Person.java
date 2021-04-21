@@ -1,48 +1,21 @@
 package com.example.beanvalidationdemo.entity;
 
-import com.example.beanvalidationdemo.constants.Constants;
 import com.example.beanvalidationdemo.service.AddPersonGroup;
 import com.example.beanvalidationdemo.service.DeletePersonGroup;
-import com.example.beanvalidationdemo.validation.PhoneNumber;
-import com.example.beanvalidationdemo.validation.Region;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Person {
 
-    @NotNull(message = "classId 不能为空")
-    private String classId;
-
-    @Size(max = 33)
-    @NotNull(message = "name 不能为空")
-    private String name;
-
-    @Pattern(regexp = Constants.sexs, message = "sex 值不在可选范围")
-    @NotNull(message = "sex 不能为空")
-    private String sex;
-
-    @Email(message = "email 格式不正确")
-    @NotNull(message = "email 不能为空")
-    private String email;
-
-    @PhoneNumber(message = "phoneNumber 格式不正确")
-    @NotNull(message = "phoneNumber 不能为空")
-    private String phoneNumber;
-
-    @Region
-    private String region;
-
+    // 当验证组为 DeletePersonGroup 的时候 group 字段不能为空
     @NotNull(groups = DeletePersonGroup.class)
+    // 当验证组为 AddPersonGroup 的时候 group 字段需要为空
     @Null(groups = AddPersonGroup.class)
     private String group;
 }
