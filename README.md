@@ -30,7 +30,7 @@
 ### 进阶
 
 1. Bean映射工具 ：[Bean映射工具之Apache BeanUtils VS Spring BeanUtils](./docs/advanced/Apache-BeanUtils-VS-SpringBean-Utils.md) 、[5种常见Bean映射工具的性能比对](./docs/advanced/Performance-of-Java-Mapping-Frameworks.md)
-3. [如何在 Spring/Spring Boot 中做参数校验？](./docs/advanced/spring-bean-validation.md)
+3. [如何在 Spring/Spring Boot 中做参数校验？](./docs/spring-bean-validation.md)
 4. [5分钟搞懂如何在Spring Boot中Schedule Tasks](./docs/advanced/SpringBoot-ScheduleTasks.md) 
 5. [新手也能看懂的 Spring Boot 异步编程指南](./docs/advanced/springboot-async.md)
 7. [Kafka 入门+SpringBoot整合Kafka系列](https://github.com/Snailclimb/springboot-kafka)
