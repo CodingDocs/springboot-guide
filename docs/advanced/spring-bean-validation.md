@@ -29,7 +29,9 @@ public class PersonController {
 
 不了解的朋友一定要好好看一下，学完马上就可以实践到项目上去。
 
-并且，本文实例项目使用的是目前最新的 Spring Boot 版本 2.4.5!（截止到 2021-04-21）
+并且，本文示例项目使用的是目前最新的 Spring Boot 版本 2.4.5!（截止到 2021-04-21）
+
+示例项目源代码地址：[https://github.com/CodingDocs/springboot-guide/tree/master/source-code/bean-validation-demo](https://github.com/CodingDocs/springboot-guide/tree/master/source-code/bean-validation-demo) 。
 
 ## 添加相关依赖
 
