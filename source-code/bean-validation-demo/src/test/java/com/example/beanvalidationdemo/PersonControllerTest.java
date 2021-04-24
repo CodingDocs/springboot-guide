@@ -42,7 +42,7 @@ public class PersonControllerTest {
                 .classId("82938390")
                 .region("Shanghai")
                 .phoneNumber("1816313815").build();
-        mockMvc.perform(post("/api/person")
+        mockMvc.perform(post("/api/persons")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(personRequest)))
                 .andExpect(MockMvcResultMatchers.jsonPath("sex").value("sex 值不在可选范围"))
@@ -53,7 +53,7 @@ public class PersonControllerTest {
 
     @Test
     public void should_check_path_variable() throws Exception {
-        mockMvc.perform(get("/api/person/6")
+        mockMvc.perform(get("/api/persons/6")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string("getPersonByID.id: 超过 id 的范围了"));
@@ -61,7 +61,7 @@ public class PersonControllerTest {
 
     @Test
     public void should_check_request_param_value2() throws Exception {
-        mockMvc.perform(put("/api/person")
+        mockMvc.perform(put("/api/persons")
                 .param("name", "snailclimbsnailclimb")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
