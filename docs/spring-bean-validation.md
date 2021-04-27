@@ -333,13 +333,17 @@ Validator validate
 具体使用情况如下：
 
 ```java
-ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-Validator validator = factory.getValidator()
-PersonRequest personRequest = PersonRequest.builder().sex("Man22")
-  .classId("82938390").build();
-Set<ConstraintViolation<PersonRequest>> violations = validator.validate(personRequest);
-// 输出异常信息
-violations.forEach(constraintViolation -> System.out.println(constraintViolation.getMessage()));
+/**
+ * 手动校验对象
+ */
+@Test
+public void check_person_manually() {
+    ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+    Validator validator = factory.getValidator();
+    PersonRequest personRequest = PersonRequest.builder().sex("Man22")
+            .classId("82938390").build();
+    Set<ConstraintViolation<PersonRequest>> violations = validator.validate(personRequest);
+    violations.forEach(constraintViolation -> System.out.println(constraintViolation.getMessage()));
 }
 ```
 
@@ -350,7 +354,7 @@ sex 值不在可选范围
 name 不能为空
 ```
 
-## 自定以 Validator(实用)
+## 自定义 Validator(实用)
 
 如果自带的校验注解无法满足你的需求的话，你还可以自定义实现注解。
 
