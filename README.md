@@ -1,3 +1,12 @@
+👍推荐[2021最新实战项目源码下载](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=100018862&idx=1&sn=858e00b60c6097e3ba061e79be472280&chksm=4ea1856579d60c73224e4d852af6b0188c3ab905069fc28f4b293963fd1ee55d2069fb229848#rd)
+
+👍[《JavaGuide 面试突击版》PDF 版本](#公众号) 。[图解计算机基础 PDF 版](#优质原创PDF资源)
+
+书单已经被移动到[awesome-cs](https://github.com/CodingDocs/awesome-cs) 这个仓库。
+
+
+
+
 <p align="center">
 <a href="https://github.com/Snailclimb/springboot-guide" target="_blank">
 	<img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/spring-boot-guide.png" width=""/>
@@ -10,8 +19,12 @@
   <a href="#公众号"><img src="https://img.shields.io/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-JavaGuide-lightgrey.svg" alt="公众号"></a>
   <a href="#公众号"><img src="https://img.shields.io/badge/PDF-Java面试突击-important.svg" alt="公众号"></a>
 </p>
-
 **在线阅读** :  https://snailclimb.gitee.io/springboot-guide （上面的地址访问速度缓慢的建议使用这个路径访问）
+
+**开源的目的是为了大家能一起完善，如果你觉得内容有任何需要完善/补充的地方，欢迎提交 issue/pr。**
+
+- Github地址：https://github.com/CodingDocs/springboot-guide
+- 码云地址：https://gitee.com/SnailClimb/springboot-guide（Github无法访问或者访问速度比较慢的小伙伴可以看码云上的对应内容）
 
 ## 重要知识点
 
@@ -54,11 +67,9 @@
 1. 项目 logo 由 [logoly](https://logoly.pro/#/) 生成。
 2. 利用 docsify 生成文档部署在 Github Pages 和 Gitee Pages: [docsify 官网介绍](https://docsify.js.org/#/)
 
-### 联系我
+### 优质原创PDF资源
 
-添加我的微信备注“Github”,回复关键字 **“加群”** 即可入群。
-
-![个人微信](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/wechat3.jpeg)
+![](https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images-2@main/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A/image-20201027160348395.png)
 
 ### 公众号
 
