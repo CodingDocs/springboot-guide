@@ -35,8 +35,6 @@ SpringBoot 整合 Mybatis 有两种常用的方式，一种就是我们常见的
 - 数据库：MySQL
 - SpringBoot版本：2.1.0
 
-
-
 ### 1.2 创建工程
 
 创建一个基本的 SpringBoot 项目，我这里就不多说这方面问题了，具体可以参考前面的文章。
