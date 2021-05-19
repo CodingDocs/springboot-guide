@@ -36,9 +36,9 @@
 4. [Spring 如何优雅读取配置文件？](./docs/basis/read-config-properties.md) 
 5. **异常处理** ：[Spring Boot 异常处理的几种方式](./docs/advanced/springboot-handle-exception.md)、[Spring Boot 异常处理在实际项目中的应用](./docs/advanced/springboot-handle-exception-plus.md)
 6. **JPA** : [ Spring Boot JPA 基础：常见操作解析](./docs/basis/springboot-jpa.md) 、 [JPA 中非常重要的连表查询就是这么简单](./docs/basis/springboot-jpa-lianbiao.md)
-7. [MyBatis-Plus  从入门到上手干事！](./docs/MyBatisPlus.md)
-8. **拦截器和过滤器** ：[SpringBoot 实现过滤器](./docs/basis/springboot-filter.md) 、[SpringBoot 实现拦截器](./docs/basis/springboot-interceptor.md)
-9. **MyBatis**  ：[整合 SpringBoot+Mybatis](./docs/basis/springboot-mybatis.md) 、[SpirngBoot2.0+ 的 SpringBoot+Mybatis 多数据源配置](./docs/basis/springboot-mybatis-mutipledatasource.md) （TODO:早期文章，不建议阅读，待重构~）
+7. **拦截器和过滤器** ：[SpringBoot 实现过滤器](./docs/basis/springboot-filter.md) 、[SpringBoot 实现拦截器](./docs/basis/springboot-interceptor.md)
+8. **MyBatis**  ：[整合 SpringBoot+Mybatis](./docs/basis/springboot-mybatis.md) 、[SpirngBoot2.0+ 的 SpringBoot+Mybatis 多数据源配置](./docs/basis/springboot-mybatis-mutipledatasource.md) （TODO:早期文章，不建议阅读，待重构~）
+9. [MyBatis-Plus  从入门到上手干事！](./docs/MyBatisPlus.md)
 10. [SpringBoot 2.0+ 集成 Swagger 官方 Starter + knife4j 增强方案](./docs/basis/swagger.md)
 
 ### 进阶
