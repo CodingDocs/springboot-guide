@@ -296,7 +296,7 @@ spring.dubbo.application.registry=zookeeper://ip地址:2181
 
 ### 4. 实现接口
 
-注意： `@Service` 注解使用的时 Dubbo 提供的而不是 Spring 提供的。另外，加了Dubbo 提供的  `@Service` 注解之后还需要加入
+注意： `@Service` 注解使用的是 Dubbo 提供的而不是 Spring 提供的。另外，加了Dubbo 提供的  `@Service` 注解之后还需要加入
 
 ```java
 package top.snailclimb.service.impl;
