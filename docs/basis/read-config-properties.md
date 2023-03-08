@@ -240,6 +240,6 @@ Spring 读取配置文件也是有优先级的，直接上图：
 
 <img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-11/read-config-properties-priority.jpg" style="zoom:50%;" />
 
-更对内容请查看官方文档：https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config
+更多内容请查看官方文档：https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config
 
 > 本文源码：https://github.com/Snailclimb/springboot-guide/tree/master/source-code/basis/read-config-properties
