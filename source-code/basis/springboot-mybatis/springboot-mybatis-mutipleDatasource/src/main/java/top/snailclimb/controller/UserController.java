@@ -9,6 +9,7 @@ import top.snailclimb.db1.service.UserService;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
     @Autowired
     private UserService userService;
 
@@ -16,7 +17,4 @@ public class UserController {
     public User testQuery() {
         return userService.selectUserByName("Daisy");
     }
-
-
 }
-

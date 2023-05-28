@@ -12,5 +12,4 @@ public class LifeCycleAnnotationApplication {
         MyConfiguration myConfiguration2 = new MyConfiguration();
         SpringApplication.run(LifeCycleAnnotationApplication.class, args);
     }
-
 }

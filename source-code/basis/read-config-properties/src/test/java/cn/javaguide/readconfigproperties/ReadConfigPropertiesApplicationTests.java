@@ -9,5 +9,4 @@ class ReadConfigPropertiesApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }

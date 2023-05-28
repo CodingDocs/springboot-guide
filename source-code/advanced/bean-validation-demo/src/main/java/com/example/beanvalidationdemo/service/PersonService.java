@@ -4,7 +4,6 @@ import com.example.beanvalidationdemo.entity.Person;
 import com.example.beanvalidationdemo.entity.PersonRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
-
 import javax.validation.Valid;
 
 @Service
@@ -24,5 +23,4 @@ public class PersonService {
     public void validatePersonGroupForDelete(@Valid Person person) {
         // do something
     }
-
 }

@@ -13,8 +13,7 @@ public class ExceptionController {
 
     @GetMapping("/resourceNotFound")
     public void throwException() {
-        Person p=new Person(1L,"SnailClimb");
+        Person p = new Person(1L, "SnailClimb");
         throw new ResourceNotFoundException(ImmutableMap.of("person id:", p.getId()));
     }
-
 }

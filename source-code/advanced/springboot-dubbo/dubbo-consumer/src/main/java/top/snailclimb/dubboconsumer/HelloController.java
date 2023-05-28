@@ -7,6 +7,7 @@ import top.snailclimb.service.HelloService;
 
 @RestController
 public class HelloController {
+
     @Reference
     private HelloService helloService;
 

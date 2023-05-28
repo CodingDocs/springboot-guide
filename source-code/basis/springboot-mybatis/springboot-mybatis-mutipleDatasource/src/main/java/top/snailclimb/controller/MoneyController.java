@@ -9,6 +9,7 @@ import top.snailclimb.db2.service.MoneyService;
 @RestController
 @RequestMapping("/money")
 public class MoneyController {
+
     @Autowired
     private MoneyService moneyService;
 

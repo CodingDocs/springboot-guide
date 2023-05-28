@@ -4,7 +4,6 @@ import com.example.helloworld.entity.User;
 import com.example.helloworld.dto.UserDto;
 import org.junit.Test;
 import org.springframework.beans.BeanUtils;
-
 import static org.junit.Assert.assertFalse;
 import static org.springframework.test.util.AssertionErrors.assertTrue;
 

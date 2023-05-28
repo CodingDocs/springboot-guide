@@ -1,7 +1,9 @@
 package com.twuc.webApp.entity;
 
 public class Person {
+
     private Long id;
+
     private String name;
 
     public Person(Long id, String name) {

@@ -1,7 +1,6 @@
 package com.twuc.webApp.exception;
 
 import org.springframework.util.ObjectUtils;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,7 +8,9 @@ import java.util.Map;
  * @author shuang.kou
  */
 public abstract class BaseException extends RuntimeException {
+
     private final ErrorCode error;
+
     private final HashMap<String, Object> data = new HashMap<>();
 
     public BaseException(ErrorCode error, Map<String, Object> data) {
@@ -35,5 +36,4 @@ public abstract class BaseException extends RuntimeException {
     public Map<String, Object> getData() {
         return data;
     }
-
 }

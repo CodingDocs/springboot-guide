@@ -6,7 +6,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -19,10 +18,15 @@ import java.util.concurrent.TimeUnit;
 @Component
 @EnableAsync
 public class AsyncScheduledTasks {
+
     private static final Logger log = LoggerFactory.getLogger(AsyncScheduledTasks.class);
+
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+
     private List<Integer> index = Arrays.asList(6, 6, 2, 3);
+
     int i = 0;
+
     /**
      * fixedDelay：固定延迟执行。距离上一次调用成功后2秒才执。
      */

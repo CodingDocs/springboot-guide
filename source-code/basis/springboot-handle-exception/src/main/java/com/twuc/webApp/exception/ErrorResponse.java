@@ -6,6 +6,7 @@ package com.twuc.webApp.exception;
 public class ErrorResponse {
 
     private String message;
+
     private String errorTypeName;
 
     public ErrorResponse() {
@@ -38,9 +39,6 @@ public class ErrorResponse {
 
     @Override
     public String toString() {
-        return "ErrorResponse{" +
-                "errorTypeName='" + errorTypeName + '\'' +
-                ", message='" + message + '\'' +
-                '}';
+        return "ErrorResponse{" + "errorTypeName='" + errorTypeName + '\'' + ", message='" + message + '\'' + '}';
     }
 }

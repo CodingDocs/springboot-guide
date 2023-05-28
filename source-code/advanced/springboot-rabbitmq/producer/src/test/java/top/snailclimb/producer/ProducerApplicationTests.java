@@ -12,6 +12,4 @@ public class ProducerApplicationTests {
     @Test
     public void contextLoads() {
     }
-
 }
-

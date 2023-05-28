@@ -19,6 +19,4 @@ public class ExceptionController {
     public void throwException2() {
         throw new ResourceNotFoundException();
     }
-
-
 }

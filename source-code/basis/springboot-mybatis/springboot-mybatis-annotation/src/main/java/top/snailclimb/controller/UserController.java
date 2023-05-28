@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.snailclimb.bean.User;
 import top.snailclimb.service.UserService;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
     @Autowired
     private UserService userService;
 
@@ -25,7 +25,6 @@ public class UserController {
         return userService.selectAllUser();
     }
 
-
     @RequestMapping("/changemoney")
     public List<User> testchangemoney() {
         userService.changemoney();
@@ -37,6 +36,4 @@ public class UserController {
         userService.deleteService(3);
         return "OK";
     }
-
 }
-

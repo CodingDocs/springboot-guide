@@ -10,7 +10,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -38,29 +37,15 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
     /**
      * 连表查询
      */
-    @Query(value = "select new github.snailclimb.jpademo.model.dto.UserDTO(p.name,p.age,c.companyName,s.name) " +
-            "from Person p left join Company c on  p.companyId=c.id " +
-            "left join School s on p.schoolId=s.id " +
-            "where p.id=:personId")
+    @Query(value = "select new github.snailclimb.jpademo.model.dto.UserDTO(p.name,p.age,c.companyName,s.name) " + "from Person p left join Company c on  p.companyId=c.id " + "left join School s on p.schoolId=s.id " + "where p.id=:personId")
     Optional<UserDTO> getUserInformation(@Param("personId") Long personId);
 
-    @Query(value = "select new github.snailclimb.jpademo.model.dto.UserDTO(p.name,p.age,c.companyName,s.name) " +
-            "from Person p left join Company c on  p.companyId=c.id " +
-            "left join School s on p.schoolId=s.id ",
-            countQuery = "select count(p.id) " +
-                    "from Person p left join Company c on  p.companyId=c.id " +
-                    "left join School s on p.schoolId=s.id ")
+    @Query(value = "select new github.snailclimb.jpademo.model.dto.UserDTO(p.name,p.age,c.companyName,s.name) " + "from Person p left join Company c on  p.companyId=c.id " + "left join School s on p.schoolId=s.id ", countQuery = "select count(p.id) " + "from Person p left join Company c on  p.companyId=c.id " + "left join School s on p.schoolId=s.id ")
     Page<UserDTO> getUserInformationList(Pageable pageable);
 
-    @Query(value = "select new github.snailclimb.jpademo.model.dto.UserDTO(p.name,p.age,c.companyName,s.name) " +
-            "from Person p left join Company c on  p.companyId=c.id " +
-            "left join School s on p.schoolId=s.id " +
-            "where p.name IN :peopleList")
+    @Query(value = "select new github.snailclimb.jpademo.model.dto.UserDTO(p.name,p.age,c.companyName,s.name) " + "from Person p left join Company c on  p.companyId=c.id " + "left join School s on p.schoolId=s.id " + "where p.name IN :peopleList")
     List<UserDTO> filterUserInfo(List peopleList);
 
-    @Query(value = "select new github.snailclimb.jpademo.model.dto.UserDTO(p.name,p.age,c.companyName,s.name) " +
-            "from Person p left join Company c on  p.companyId=c.id " +
-            "left join School s on p.schoolId=s.id " +
-            "where p.age between :small and :big")
-    List<UserDTO> filterUserInfoByAge(int small,int big);
+    @Query(value = "select new github.snailclimb.jpademo.model.dto.UserDTO(p.name,p.age,c.companyName,s.name) " + "from Person p left join Company c on  p.companyId=c.id " + "left join School s on p.schoolId=s.id " + "where p.age between :small and :big")
+    List<UserDTO> filterUserInfoByAge(int small, int big);
 }

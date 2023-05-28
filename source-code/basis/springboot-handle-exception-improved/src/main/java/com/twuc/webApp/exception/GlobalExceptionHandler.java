@@ -7,14 +7,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import javax.servlet.http.HttpServletRequest;
-
 
 /**
  * @author shuang.kou
  */
-@ControllerAdvice(assignableTypes = {ExceptionController.class})
+@ControllerAdvice(assignableTypes = { ExceptionController.class })
 @ResponseBody
 public class GlobalExceptionHandler {
 

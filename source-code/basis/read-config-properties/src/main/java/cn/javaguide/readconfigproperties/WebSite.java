@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 @Getter
 @Setter
 class WebSite {
+
     @Value("${url}")
     private String url;
 }

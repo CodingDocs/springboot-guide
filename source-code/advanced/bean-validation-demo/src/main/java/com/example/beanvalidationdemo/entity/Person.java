@@ -3,7 +3,6 @@ package com.example.beanvalidationdemo.entity;
 import com.example.beanvalidationdemo.service.AddPersonGroup;
 import com.example.beanvalidationdemo.service.DeletePersonGroup;
 import lombok.Data;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 

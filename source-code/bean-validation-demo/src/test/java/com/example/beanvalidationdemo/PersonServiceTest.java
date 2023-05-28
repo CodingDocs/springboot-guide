@@ -8,20 +8,19 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
 import javax.validation.ConstraintViolationException;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PersonServiceTest {
+
     @Autowired
     private PersonService service;
 
     @Test
     public void should_throw_exception_when_person_request_is_not_valid() {
         try {
-            PersonRequest personRequest = PersonRequest.builder().sex("Man22")
-                    .classId("82938390").build();
+            PersonRequest personRequest = PersonRequest.builder().sex("Man22").classId("82938390").build();
             service.validatePersonRequest(personRequest);
         } catch (ConstraintViolationException e) {
             e.getConstraintViolations().forEach(constraintViolation -> System.out.println(constraintViolation.getMessage()));
@@ -40,5 +39,4 @@ public class PersonServiceTest {
         Person person = new Person();
         service.validatePersonGroupForDelete(person);
     }
-
 }

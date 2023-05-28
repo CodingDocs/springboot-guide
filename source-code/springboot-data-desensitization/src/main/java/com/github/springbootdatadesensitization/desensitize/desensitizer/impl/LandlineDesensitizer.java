@@ -7,8 +7,9 @@ import com.github.springbootdatadesensitization.desensitize.desensitizer.Abstrac
  *
  * @author Guide哥
  * @date 2021/05/10 20:28
- **/
+ */
 public class LandlineDesensitizer extends AbstractDesensitizer {
+
     public LandlineDesensitizer() {
         super(2, 2);
     }

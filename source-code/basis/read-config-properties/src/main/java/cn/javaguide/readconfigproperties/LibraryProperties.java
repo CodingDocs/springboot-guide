@@ -7,7 +7,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 @Component
@@ -16,14 +15,18 @@ import java.util.List;
 @Getter
 @ToString
 class LibraryProperties {
+
     private String location;
+
     private List<Book> books;
 
     @Setter
     @Getter
     @ToString
     static class Book {
+
         String name;
+
         String description;
     }
 }

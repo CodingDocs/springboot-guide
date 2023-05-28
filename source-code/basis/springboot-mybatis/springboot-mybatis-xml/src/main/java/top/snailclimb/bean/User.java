@@ -1,10 +1,13 @@
 package top.snailclimb.bean;
 
-
 public class User {
+
     private int id;
+
     private String name;
+
     private int age;
+
     private double money;
 
     public int getId() {
@@ -30,6 +33,7 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
+
     public double getMoney() {
         return money;
     }
@@ -42,7 +46,4 @@ public class User {
     public String toString() {
         return "User [id=" + id + ", name=" + name + ", age=" + age + ", money=" + money + "]";
     }
-
-
-
 }

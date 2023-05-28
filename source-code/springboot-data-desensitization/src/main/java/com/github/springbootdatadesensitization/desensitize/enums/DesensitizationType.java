@@ -5,7 +5,7 @@ package com.github.springbootdatadesensitization.desensitize.enums;
  *
  * @author Guide哥
  * @date 2021/05/10 20:36
- **/
+ */
 public enum DesensitizationType {
 
     DEFAULT,
@@ -21,7 +21,6 @@ public enum DesensitizationType {
      * 邮箱
      */
     EMAIL,
-
     /**
      * 生日🎂
      */
@@ -41,6 +40,5 @@ public enum DesensitizationType {
     /**
      * 地址
      */
-    ADDRESS,
-
+    ADDRESS
 }
