@@ -9,5 +9,4 @@ class SpringbootScheduleTaskApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }

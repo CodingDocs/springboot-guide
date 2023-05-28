@@ -9,6 +9,7 @@ import top.snailclimb.db2.dao.MoneyDao;
 
 @Service
 public class MoneyService {
+
     @Autowired
     private MoneyDao moneyDao;
 
@@ -18,5 +19,4 @@ public class MoneyService {
     public Money selectMoneyById(int id) {
         return moneyDao.findMoneyById(id);
     }
-
 }

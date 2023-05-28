@@ -1,14 +1,12 @@
 package top.snailclimb.dao;
 
-
 import org.apache.ibatis.annotations.*;
 import top.snailclimb.bean.User;
-
 import java.util.List;
-
 
 @Mapper
 public interface UserDao {
+
     /**
      * 通过名字查询用户信息
      *
@@ -37,8 +35,7 @@ public interface UserDao {
      * 根据 id 更新用户信息
      */
     @Update("UPDATE  user SET name = #{name},age = #{age},money= #{money} WHERE id = #{id}")
-    void updateUser(@Param("name") String name, @Param("age") Integer age, @Param("money") Double money,
-                    @Param("id") int id);
+    void updateUser(@Param("name") String name, @Param("age") Integer age, @Param("money") Double money, @Param("id") int id);
 
     /**
      * 根据 id 删除用户信息

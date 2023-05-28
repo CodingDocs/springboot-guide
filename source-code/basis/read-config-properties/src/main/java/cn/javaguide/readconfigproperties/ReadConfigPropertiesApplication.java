@@ -12,9 +12,13 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @SpringBootApplication
 @EnableConfigurationProperties(ProfileProperties.class)
 public class ReadConfigPropertiesApplication implements InitializingBean {
+
     private final ProfileProperties profileProperties;
+
     private final LibraryProperties libraryProperties;
+
     private final WebSite webSite;
+
     @Value("${wuhan2020}")
     String wuhan2020;
 

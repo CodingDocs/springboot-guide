@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Qualifier;
 import top.snailclimb.bean.Money;
 
-
 @Qualifier("db2SqlSessionTemplate")
 public interface MoneyDao {
 

@@ -11,5 +11,4 @@ public class SpringbootFilterApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringbootFilterApplication.class, args);
     }
-
 }

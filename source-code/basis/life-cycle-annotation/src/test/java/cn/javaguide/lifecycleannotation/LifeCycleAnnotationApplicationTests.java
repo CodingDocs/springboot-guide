@@ -9,5 +9,4 @@ class LifeCycleAnnotationApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }

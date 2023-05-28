@@ -1,12 +1,12 @@
 package cn.javaguide.config;
 
 import org.springframework.context.annotation.Configuration;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Configuration
 public class MyConfiguration {
+
     public MyConfiguration() {
         System.out.println("构造方法被调用");
     }
@@ -21,4 +21,3 @@ public class MyConfiguration {
         System.out.println("PreDestroy注解方法被调用");
     }
 }
-

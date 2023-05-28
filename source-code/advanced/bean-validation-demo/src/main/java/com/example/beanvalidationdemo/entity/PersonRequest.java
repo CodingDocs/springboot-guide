@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -16,7 +15,7 @@ import javax.validation.constraints.Size;
  *
  * @author Guide哥
  * @date 2021/04/21 20:48
- **/
+ */
 @Data
 @Builder
 @AllArgsConstructor
@@ -40,5 +39,4 @@ public class PersonRequest {
     @PhoneNumber(message = "phoneNumber 格式不正确")
     @NotNull(message = "phoneNumber 不能为空")
     private String phoneNumber;
-
 }

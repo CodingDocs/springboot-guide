@@ -9,5 +9,4 @@ public class SpringbootDataDesensitizationApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringbootDataDesensitizationApplication.class, args);
     }
-
 }

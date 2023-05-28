@@ -10,7 +10,6 @@ import com.github.springbootdatadesensitization.desensitize.desensitizer.impl.La
 import com.github.springbootdatadesensitization.desensitize.desensitizer.impl.MobileDesensitizer;
 import com.github.springbootdatadesensitization.desensitize.desensitizer.impl.PasswordDesensitizer;
 import com.github.springbootdatadesensitization.desensitize.enums.DesensitizationType;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,8 +18,9 @@ import java.util.Map;
  *
  * @author Guide哥
  * @date 2021/05/10 23:18
- **/
+ */
 public class DesensitizerFactory {
+
     public static final Map<DesensitizationType, Desensitizer> desensitizers = new HashMap<>();
 
     static {

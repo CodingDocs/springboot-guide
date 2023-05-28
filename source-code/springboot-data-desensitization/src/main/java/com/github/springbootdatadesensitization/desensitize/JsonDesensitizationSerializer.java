@@ -10,7 +10,6 @@ import com.github.springbootdatadesensitization.desensitize.annotation.JsonDesen
 import com.github.springbootdatadesensitization.desensitize.desensitizer.Desensitizer;
 import com.github.springbootdatadesensitization.desensitize.desensitizer.DesensitizerFactory;
 import com.github.springbootdatadesensitization.desensitize.enums.DesensitizationType;
-
 import java.io.IOException;
 import java.util.Objects;
 
@@ -19,9 +18,8 @@ import java.util.Objects;
  *
  * @author Guide哥
  * @date 2021/05/10 20:26
- **/
+ */
 public class JsonDesensitizationSerializer extends JsonSerializer<String> implements ContextualSerializer {
-
 
     private DesensitizationType type;
 

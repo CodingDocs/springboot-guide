@@ -9,5 +9,4 @@ public class AsyncMethodSpringbootApplication {
     public static void main(String[] args) {
         SpringApplication.run(AsyncMethodSpringbootApplication.class, args);
     }
-
 }

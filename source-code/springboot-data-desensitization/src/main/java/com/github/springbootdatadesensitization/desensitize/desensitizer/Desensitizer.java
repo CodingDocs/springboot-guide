@@ -5,7 +5,8 @@ package com.github.springbootdatadesensitization.desensitize.desensitizer;
  *
  * @author Guide哥
  * @date 2021/05/10 20:36
- **/
+ */
 public interface Desensitizer {
+
     String desensitize(String origin);
 }

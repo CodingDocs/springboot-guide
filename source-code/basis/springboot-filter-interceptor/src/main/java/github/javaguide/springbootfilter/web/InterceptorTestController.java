@@ -9,11 +9,8 @@ public class InterceptorTestController {
 
     @RequestMapping(value = { "/", "/test" })
     public String test(Model model) {
-
         System.out.println("\n-------- MainController.test --- ");
-
         System.out.println(" ** You are in Controller ** ");
-
         return "test";
     }
 
@@ -22,19 +19,14 @@ public class InterceptorTestController {
     @Deprecated
     @RequestMapping(value = { "/admin/oldLogin" })
     public String oldLogin(Model model) {
-
         // Code here never run.
         return "oldLogin";
     }
 
     @RequestMapping(value = { "/admin/login" })
     public String login(Model model) {
-
         System.out.println("\n-------- MainController.login --- ");
-
         System.out.println(" ** You are in Controller ** ");
-
         return "login";
     }
-
 }

@@ -1,8 +1,11 @@
 package top.snailclimb.bean;
 
 public class Money {
+
     private int basic;
+
     private int reward;
+
     private int punishment;
 
     public void setBasic(int basic) {
@@ -31,10 +34,6 @@ public class Money {
 
     @Override
     public String toString() {
-        return "Money{" +
-                "basic=" + basic +
-                ", reward=" + reward +
-                ", punishment=" + punishment +
-                '}';
+        return "Money{" + "basic=" + basic + ", reward=" + reward + ", punishment=" + punishment + '}';
     }
 }

@@ -11,5 +11,4 @@ public class SpringbootScheduleTaskApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringbootScheduleTaskApplication.class, args);
     }
-
 }

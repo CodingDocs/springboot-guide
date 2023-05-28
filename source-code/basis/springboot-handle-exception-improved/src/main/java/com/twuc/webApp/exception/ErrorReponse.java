@@ -1,17 +1,22 @@
 package com.twuc.webApp.exception;
 
 import org.springframework.util.ObjectUtils;
-
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ErrorReponse {
+
     private int code;
+
     private int status;
+
     private String message;
+
     private String path;
+
     private Instant timestamp;
+
     private HashMap<String, Object> data = new HashMap<String, Object>();
 
     public ErrorReponse() {
@@ -82,13 +87,6 @@ public class ErrorReponse {
 
     @Override
     public String toString() {
-        return "ErrorReponse{" +
-                "code=" + code +
-                ", status=" + status +
-                ", message='" + message + '\'' +
-                ", path='" + path + '\'' +
-                ", timestamp=" + timestamp +
-                ", data=" + data +
-                '}';
+        return "ErrorReponse{" + "code=" + code + ", status=" + status + ", message='" + message + '\'' + ", path='" + path + '\'' + ", timestamp=" + timestamp + ", data=" + data + '}';
     }
 }

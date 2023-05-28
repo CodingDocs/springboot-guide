@@ -5,6 +5,7 @@ package com.twuc.webApp.exception;
  * 自定义异常类型
  */
 public class ResourceNotFoundException extends RuntimeException {
+
     private String message;
 
     public ResourceNotFoundException() {

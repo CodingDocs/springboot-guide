@@ -7,6 +7,7 @@ import top.snailclimb.dao.UserDao;
 
 @Service
 public class UserService {
+
     @Autowired
     private UserDao userDao;
 
@@ -16,5 +17,4 @@ public class UserService {
     public User selectUserByName(String name) {
         return userDao.findUserByName(name);
     }
-
 }

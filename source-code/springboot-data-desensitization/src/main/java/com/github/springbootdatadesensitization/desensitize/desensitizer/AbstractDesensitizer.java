@@ -1,7 +1,6 @@
 package com.github.springbootdatadesensitization.desensitize.desensitizer;
 
 import com.github.springbootdatadesensitization.desensitize.exception.DesensitizationException;
-
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -12,13 +11,14 @@ import java.util.stream.Stream;
  *
  * @author Guide哥
  * @date 2021/05/10 20:15
- **/
+ */
 public abstract class AbstractDesensitizer implements Desensitizer {
 
     /**
      * 左边的明文长度
      */
     private final Integer leftPlainTextLen;
+
     /**
      * 右边的明文长度
      */

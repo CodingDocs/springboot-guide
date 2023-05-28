@@ -7,8 +7,9 @@ import com.github.springbootdatadesensitization.desensitize.desensitizer.Abstrac
  *
  * @author Guide哥
  * @date 2021/05/10 20:28
- **/
+ */
 public class IdCardDesensitizer extends AbstractDesensitizer {
+
     public IdCardDesensitizer() {
         super(3, 4);
     }

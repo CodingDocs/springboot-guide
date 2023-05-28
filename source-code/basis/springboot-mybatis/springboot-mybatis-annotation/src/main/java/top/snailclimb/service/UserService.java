@@ -5,14 +5,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import top.snailclimb.bean.User;
 import top.snailclimb.dao.UserDao;
-
 import java.util.List;
 
 @Service
 public class UserService {
+
     @Autowired
     private UserDao userDao;
-
 
     /**
      * 根据名字查找用户
@@ -39,7 +38,6 @@ public class UserService {
     /**
      * 根据id 删除用户
      */
-
     public void deleteService(int id) {
         userDao.deleteUser(id);
     }
